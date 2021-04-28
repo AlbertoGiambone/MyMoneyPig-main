@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53DC0EE8A62768304B09B056 /* Pods_MyMoneyPig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E65B14B12F7F34C003401AA /* Pods_MyMoneyPig.framework */; };
+		A012FD1B25D13428002C92F9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012FD1A25D13428002C92F9 /* Models.swift */; };
+		A01CDA6225C9584400DC5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CDA6125C9584400DC5F74 /* HomeViewController.swift */; };
+		A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79825C9542800DD9032 /* AppDelegate.swift */; };
+		A0B8F79B25C9542800DD9032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */; };
+		A0B8F7A025C9542800DD9032 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F79E25C9542800DD9032 /* Main.storyboard */; };
+		A0B8F7A225C9542800DD9032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F7A125C9542800DD9032 /* Assets.xcassets */; };
+		A0B8F7A525C9542800DD9032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F7A325C9542800DD9032 /* LaunchScreen.storyboard */; };
+		A0B8F7AE25C9549F00DD9032 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */; };
+		A0D8A84925DA73C000D9EBAD /* Truncation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8A84825DA73C000D9EBAD /* Truncation.swift */; };
+		A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */; };
+		A0EB46BF25D00BAB009FCC7A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */; };
+		A0EB46C225D00BC9009FCC7A /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46C125D00BC9009FCC7A /* CustomViewController.swift */; };
+		A0EB46C525D11A88009FCC7A /* AddBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46C425D11A88009FCC7A /* AddBillViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E65B14B12F7F34C003401AA /* Pods_MyMoneyPig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMoneyPig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3C849B184BD35AA23DA408 /* Pods-MyMoneyPig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoneyPig.debug.xcconfig"; path = "Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig.debug.xcconfig"; sourceTree = "<group>"; };
+		6C2A810F780EFC6A19E8DE5B /* Pods-MyMoneyPig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoneyPig.release.xcconfig"; path = "Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig.release.xcconfig"; sourceTree = "<group>"; };
+		A012FD1A25D13428002C92F9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A01CDA6125C9584400DC5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A01FFC2925C9EB4B0052A3B6 /* MyMoneyPig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMoneyPig.entitlements; sourceTree = "<group>"; };
+		A0B8F79525C9542800DD9032 /* MyMoneyPig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoneyPig.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B8F79825C9542800DD9032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A0B8F79F25C9542800DD9032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0B8F7A125C9542800DD9032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0B8F7A425C9542800DD9032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0B8F7A625C9542800DD9032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0D8A84825DA73C000D9EBAD /* Truncation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Truncation.swift; sourceTree = "<group>"; };
+		A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A0EB46C125D00BC9009FCC7A /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		A0EB46C425D11A88009FCC7A /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0B8F79225C9542800DD9032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DC0EE8A62768304B09B056 /* Pods_MyMoneyPig.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7CA61069F2D3CAF4664105D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A3C849B184BD35AA23DA408 /* Pods-MyMoneyPig.debug.xcconfig */,
+				6C2A810F780EFC6A19E8DE5B /* Pods-MyMoneyPig.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A0B8F78C25C9542800DD9032 = {
+			isa = PBXGroup;
+			children = (
+				A0B8F79725C9542800DD9032 /* MyMoneyPig */,
+				A0B8F79625C9542800DD9032 /* Products */,
+				7CA61069F2D3CAF4664105D1 /* Pods */,
+				B2F926492FC279E6C45216C1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0B8F79625C9542800DD9032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0B8F79525C9542800DD9032 /* MyMoneyPig.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0B8F79725C9542800DD9032 /* MyMoneyPig */ = {
+			isa = PBXGroup;
+			children = (
+				A01FFC2925C9EB4B0052A3B6 /* MyMoneyPig.entitlements */,
+				A0B8F79825C9542800DD9032 /* AppDelegate.swift */,
+				A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */,
+				A0B8F79E25C9542800DD9032 /* Main.storyboard */,
+				A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */,
+				A0EB46C425D11A88009FCC7A /* AddBillViewController.swift */,
+				A012FD1A25D13428002C92F9 /* Models.swift */,
+				A0EB46C125D00BC9009FCC7A /* CustomViewController.swift */,
+				A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */,
+				A01CDA6125C9584400DC5F74 /* HomeViewController.swift */,
+				A0B8F7A125C9542800DD9032 /* Assets.xcassets */,
+				A0D8A84825DA73C000D9EBAD /* Truncation.swift */,
+				A0B8F7A325C9542800DD9032 /* LaunchScreen.storyboard */,
+				A0B8F7A625C9542800DD9032 /* Info.plist */,
+				A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */,
+			);
+			path = MyMoneyPig;
+			sourceTree = "<group>";
+		};
+		B2F926492FC279E6C45216C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E65B14B12F7F34C003401AA /* Pods_MyMoneyPig.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0B8F79425C9542800DD9032 /* MyMoneyPig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0B8F7A925C9542800DD9032 /* Build configuration list for PBXNativeTarget "MyMoneyPig" */;
+			buildPhases = (
+				81A326FFE7CEDD3BAC492DD4 /* [CP] Check Pods Manifest.lock */,
+				A0B8F79125C9542800DD9032 /* Sources */,
+				A0B8F79225C9542800DD9032 /* Frameworks */,
+				A0B8F79325C9542800DD9032 /* Resources */,
+				B913774E1B7914FBC7F7B7F7 /* [CP] Embed Pods Frameworks */,
+				FBA0C388A622A7E017AA81C2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMoneyPig;
+			productName = MyMoneyPig;
+			productReference = A0B8F79525C9542800DD9032 /* MyMoneyPig.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0B8F78D25C9542800DD9032 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					A0B8F79425C9542800DD9032 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = A0B8F79025C9542800DD9032 /* Build configuration list for PBXProject "MyMoneyPig" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0B8F78C25C9542800DD9032;
+			productRefGroup = A0B8F79625C9542800DD9032 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0B8F79425C9542800DD9032 /* MyMoneyPig */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0B8F79325C9542800DD9032 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0B8F7A525C9542800DD9032 /* LaunchScreen.storyboard in Resources */,
+				A0B8F7AE25C9549F00DD9032 /* GoogleService-Info.plist in Resources */,
+				A0B8F7A225C9542800DD9032 /* Assets.xcassets in Resources */,
+				A0B8F7A025C9542800DD9032 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81A326FFE7CEDD3BAC492DD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyMoneyPig-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B913774E1B7914FBC7F7B7F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBA0C388A622A7E017AA81C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMoneyPig/Pods-MyMoneyPig-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0B8F79125C9542800DD9032 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */,
+				A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */,
+				A0B8F79B25C9542800DD9032 /* SceneDelegate.swift in Sources */,
+				A0D8A84925DA73C000D9EBAD /* Truncation.swift in Sources */,
+				A0EB46C225D00BC9009FCC7A /* CustomViewController.swift in Sources */,
+				A01CDA6225C9584400DC5F74 /* HomeViewController.swift in Sources */,
+				A0EB46BF25D00BAB009FCC7A /* SettingsViewController.swift in Sources */,
+				A0EB46C525D11A88009FCC7A /* AddBillViewController.swift in Sources */,
+				A012FD1B25D13428002C92F9 /* Models.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0B8F79E25C9542800DD9032 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0B8F79F25C9542800DD9032 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0B8F7A325C9542800DD9032 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0B8F7A425C9542800DD9032 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0B8F7A725C9542800DD9032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0B8F7A825C9542800DD9032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0B8F7AA25C9542800DD9032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A3C849B184BD35AA23DA408 /* Pods-MyMoneyPig.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyMoneyPig/MyMoneyPig.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FWDSDKN998;
+				INFOPLIST_FILE = MyMoneyPig/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.4.1;
+				PRODUCT_BUNDLE_IDENTIFIER = albertogiambone.MoneyWay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0B8F7AB25C9542800DD9032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2A810F780EFC6A19E8DE5B /* Pods-MyMoneyPig.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyMoneyPig/MyMoneyPig.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FWDSDKN998;
+				INFOPLIST_FILE = MyMoneyPig/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.4.1;
+				PRODUCT_BUNDLE_IDENTIFIER = albertogiambone.MoneyWay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0B8F79025C9542800DD9032 /* Build configuration list for PBXProject "MyMoneyPig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0B8F7A725C9542800DD9032 /* Debug */,
+				A0B8F7A825C9542800DD9032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0B8F7A925C9542800DD9032 /* Build configuration list for PBXNativeTarget "MyMoneyPig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0B8F7AA25C9542800DD9032 /* Debug */,
+				A0B8F7AB25C9542800DD9032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0B8F78D25C9542800DD9032 /* Project object */;
+}
