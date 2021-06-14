@@ -13,13 +13,15 @@ class HomeViewController: UIViewController {
 
     //MARK: Connection
     
-    @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var balanceLabel: RoundLabel!
     
     @IBOutlet weak var weekLabel: UILabel!
     
     @IBOutlet weak var monthLabel: UILabel!
     
-    @IBOutlet weak var sevenDaysImage: UIImageView!
+    @IBOutlet weak var sevenNumber: UILabel!
+    
+    @IBOutlet weak var thirtyNumber: UILabel!
     
     
     
@@ -125,6 +127,18 @@ class HomeViewController: UIViewController {
         let monthSpent = monthDouble.reduce(0, +).truncate(places: 2)
         weekLabel.text = String("\(weekSpent) \(userCurrency)")
         monthLabel.text = String("\(monthSpent) \(userCurrency)")
+        
+        if weekSpent < 0 {
+            sevenNumber.textColor = UIColor(displayP3Red: 230/255, green: 0/255, blue: 115/256, alpha: 1)
+        }else{
+            sevenNumber.textColor = UIColor(displayP3Red: 0/255, green: 234/255, blue: 36/255, alpha: 1)
+        }
+        if monthSpent < 0 {
+            thirtyNumber.textColor = UIColor(displayP3Red: 230/255, green: 0/255, blue: 115/256, alpha: 1)
+        }else{
+            thirtyNumber.textColor = UIColor(displayP3Red: 0/255, green: 234/255, blue: 36/255, alpha: 1)
+        }
+        
     }
     
     
@@ -133,7 +147,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sevenDaysImage.layer.cornerRadius = 4
+        
         
         
     }
@@ -210,6 +224,16 @@ class HomeViewController: UIViewController {
             let defCurrency = UserDefaults.standard.object(forKey: "CurrencySet")
             self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
             self.getWeekBalance()
+            
+            
+            let yo = Double(self.stodo.reduce(0, +).truncate(places: 2))
+            
+            if yo < 0 {
+                balanceLabel.backgroundColor = UIColor(displayP3Red: 230/255, green: 0/255, blue: 115/256, alpha: 1)
+            }else{
+                balanceLabel.backgroundColor = UIColor(displayP3Red: 0/255, green: 234/255, blue: 36/255, alpha: 1)
+            }
+            
         }
 
 

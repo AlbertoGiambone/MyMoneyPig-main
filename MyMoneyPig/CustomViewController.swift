@@ -45,7 +45,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CLCellTableViewCell
 
         let usd = UserDefaults.standard.object(forKey: "CurrencySet") as? String ?? ""
         if segment.selectedSegmentIndex == 0 {
@@ -54,54 +54,87 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if billsOrdered[indexPath.row].sign == "false" {
                 y = String("- \(billsOrdered[indexPath.row].amount)")
+                let nm = String("\(y!) \(usd)")
+                
+                cell.moneyLabel.text = nm
+                cell.moneyLabel.font = UIFont(name: "Galvji", size: 15)
+                cell.moneyLabel.font = UIFont.boldSystemFont(ofSize: 15)
+                cell.moneyLabel.textColor = UIColor.systemPink
+                
+                
             }else{
                 y = String(billsOrdered[indexPath.row].amount)
+                let nm = String("\(y!) \(usd)")
+                
+                cell.moneyLabel.text = nm
+                cell.moneyLabel.font = UIFont(name: "Galvji", size: 15)
+                cell.moneyLabel.font = UIFont.boldSystemFont(ofSize: 15)
+                cell.moneyLabel.textColor = UIColor.systemBlue
             }
-        let t = String("\(y!) \(usd)   \(billsOrdered[indexPath.row].subject)")
+        let t = String("\(billsOrdered[indexPath.row].subject)")
+            
+        
  
         print("\(t) eccooo illll TTTTTTT")
-        cell.textLabel?.text = String(t)
-        cell.textLabel?.font = UIFont(name: "Galvji", size: 18)
-        cell.textLabel?.textColor = UIColor.systemBlue
+            
+            
+        
+            
+        cell.billSubject?.text = String(t)
+        cell.billSubject?.font = UIFont(name: "Galvji", size: 15)
+        cell.billSubject.font = UIFont.boldSystemFont(ofSize: 15)
+        cell.billSubject?.textColor = UIColor.darkText
         
             let day = billsOrdered[indexPath.row].BillDate
             let dayFormatter = DateFormatter()
             dayFormatter.dateStyle = .short
             let stringDate = dayFormatter.string(from: day)
             
-        cell.detailTextLabel?.text = String(stringDate)
-        cell.detailTextLabel?.font = UIFont(name: "Galvji", size: 9)
-        cell.detailTextLabel?.textColor = UIColor.darkGray
+        cell.dateLabel?.text = String(stringDate)
+        cell.dateLabel?.font = UIFont(name: "Galvji", size: 9)
+        cell.dateLabel?.textColor = UIColor.darkGray
         }
         if segment.selectedSegmentIndex == 1 {
-            let t = String("\(positiveOrdered[indexPath.row].amount) \(usd)   \(positiveOrdered[indexPath.row].subject)")
-            cell.textLabel?.text = String(t)
-            cell.textLabel?.font = UIFont(name: "Galvji", size: 18)
-            cell.textLabel?.textColor = UIColor.systemBlue
+            let t = String("\(positiveOrdered[indexPath.row].subject)")
+            cell.billSubject?.text = String(t)
+            cell.billSubject?.font = UIFont(name: "Galvji", size: 15)
+            cell.billSubject.font = UIFont.boldSystemFont(ofSize: 15)
+            cell.billSubject?.textColor = UIColor.darkText
+            
+            cell.moneyLabel.text = String("\(positiveOrdered[indexPath.row].amount) \(usd)")
+            cell.moneyLabel.font = UIFont(name: "Galvji", size: 15)
+            cell.moneyLabel.font = UIFont.boldSystemFont(ofSize: 15)
+            cell.moneyLabel.textColor = UIColor.systemBlue
             
             let day = positiveOrdered[indexPath.row].BillDate
             let dayFormatter = DateFormatter()
             dayFormatter.dateStyle = .short
             let stringDate = dayFormatter.string(from: day)
             
-            cell.detailTextLabel?.text = String(stringDate)
-            cell.detailTextLabel?.font = UIFont(name: "Galvji", size: 15)
-            cell.detailTextLabel?.textColor = UIColor.darkGray
+            cell.dateLabel?.text = String(stringDate)
+            cell.dateLabel?.font = UIFont(name: "Galvji", size: 9)
+            cell.dateLabel?.textColor = UIColor.darkGray
         }
         if segment.selectedSegmentIndex == 2 {
-            let t = String("- \(negativeOrdered[indexPath.row].amount) \(usd)   \(negativeOrdered[indexPath.row].subject)")
-            cell.textLabel?.text = String(t)
-            cell.textLabel?.font = UIFont(name: "Galvji", size: 18)
-            cell.textLabel?.textColor = UIColor.systemBlue
+            let t = String("\(negativeOrdered[indexPath.row].subject)")
+            cell.billSubject?.text = String(t)
+            cell.billSubject?.font = UIFont(name: "Galvji", size: 15)
+            cell.billSubject.font = UIFont.boldSystemFont(ofSize: 15)
+            cell.billSubject?.textColor = UIColor.darkText
+            
+            cell.moneyLabel.text = String("-\(negativeOrdered[indexPath.row].amount) \(usd)")
+            cell.moneyLabel.font = UIFont(name: "Galvji", size: 15)
+            cell.moneyLabel.font = UIFont.boldSystemFont(ofSize: 15)
+            cell.moneyLabel.textColor = UIColor.systemPink
             
             let day = negativeOrdered[indexPath.row].BillDate
             let dayFormatter = DateFormatter()
             dayFormatter.dateStyle = .short
             let stringDate = dayFormatter.string(from: day)
             
-            cell.detailTextLabel?.text = String(stringDate)
-            cell.detailTextLabel?.font = UIFont(name: "Galvji", size: 15)
-            cell.detailTextLabel?.textColor = UIColor.darkGray
+            cell.dateLabel?.text = String(stringDate)
+            cell.dateLabel?.font = UIFont(name: "Galvji", size: 9)
+            cell.dateLabel?.textColor = UIColor.darkGray
         }
         
         return cell

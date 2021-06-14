@@ -24,8 +24,11 @@ class CLCellTableViewCell: UITableViewCell {
     //Connection
     
     
+    @IBOutlet weak var moneyLabel: UILabel!
     
+    @IBOutlet weak var billSubject: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     
     
 }

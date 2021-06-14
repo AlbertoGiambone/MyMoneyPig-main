@@ -10,6 +10,7 @@
 		53DC0EE8A62768304B09B056 /* Pods_MyMoneyPig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E65B14B12F7F34C003401AA /* Pods_MyMoneyPig.framework */; };
 		A012FD1B25D13428002C92F9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012FD1A25D13428002C92F9 /* Models.swift */; };
 		A01CDA6225C9584400DC5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CDA6125C9584400DC5F74 /* HomeViewController.swift */; };
+		A05C88D92677F3A800807317 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C88D82677F3A800807317 /* RoundLabel.swift */; };
 		A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79825C9542800DD9032 /* AppDelegate.swift */; };
 		A0B8F79B25C9542800DD9032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */; };
 		A0B8F7A025C9542800DD9032 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F79E25C9542800DD9032 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		A012FD1A25D13428002C92F9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A01CDA6125C9584400DC5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A01FFC2925C9EB4B0052A3B6 /* MyMoneyPig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMoneyPig.entitlements; sourceTree = "<group>"; };
+		A05C88D82677F3A800807317 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		A0B8F79525C9542800DD9032 /* MyMoneyPig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoneyPig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B8F79825C9542800DD9032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A01CDA6125C9584400DC5F74 /* HomeViewController.swift */,
 				A0B8F7A125C9542800DD9032 /* Assets.xcassets */,
 				A0D8A84825DA73C000D9EBAD /* Truncation.swift */,
+				A05C88D82677F3A800807317 /* RoundLabel.swift */,
 				A0B8F7A325C9542800DD9032 /* LaunchScreen.storyboard */,
 				A0B8F7A625C9542800DD9032 /* Info.plist */,
 				A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */,
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05C88D92677F3A800807317 /* RoundLabel.swift in Sources */,
 				A0C265842639594F00AD4669 /* CLCellTableViewCell.swift in Sources */,
 				A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */,
 				A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */,
@@ -416,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = albertogiambone.MoneyWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -439,7 +443,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = albertogiambone.MoneyWay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
