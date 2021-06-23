@@ -84,6 +84,12 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         currencyTextField.text = UserDefaults.standard.object(forKey: "CurrencySet") as? String
         
+        /*
+        let logo = UIImage(named: "TopBar.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        */
+ 
     }
     
   

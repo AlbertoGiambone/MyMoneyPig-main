@@ -55,6 +55,12 @@ class HomeViewController: UIViewController {
             }
         }
         
+        stodo.removeAll()
+        balanceArray.removeAll()
+        weekDouble.removeAll()
+        monthDouble.removeAll()
+        wholeFirestore.removeAll()
+        
         fetcFirestore()
         
     }
@@ -128,6 +134,7 @@ class HomeViewController: UIViewController {
         weekLabel.text = String("\(weekSpent) \(userCurrency)")
         monthLabel.text = String("\(monthSpent) \(userCurrency)")
         
+        /*
         if weekSpent < 0 {
             sevenNumber.textColor = UIColor(displayP3Red: 230/255, green: 0/255, blue: 115/256, alpha: 1)
         }else{
@@ -138,7 +145,7 @@ class HomeViewController: UIViewController {
         }else{
             thirtyNumber.textColor = UIColor(displayP3Red: 0/255, green: 234/255, blue: 36/255, alpha: 1)
         }
-        
+        */
     }
     
     
@@ -148,8 +155,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         
-        
-        
+        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -225,7 +233,7 @@ class HomeViewController: UIViewController {
             self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
             self.getWeekBalance()
             
-            
+            /*
             let yo = Double(self.stodo.reduce(0, +).truncate(places: 2))
             
             if yo < 0 {
@@ -233,7 +241,7 @@ class HomeViewController: UIViewController {
             }else{
                 balanceLabel.backgroundColor = UIColor(displayP3Red: 0/255, green: 234/255, blue: 36/255, alpha: 1)
             }
-            
+            */
         }
 
 

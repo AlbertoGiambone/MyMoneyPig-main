@@ -20,7 +20,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var amountTextField: UITextField!
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     
@@ -100,8 +100,9 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Action
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+    
+   
         let db = Firestore.firestore()
         
         
