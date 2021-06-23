@@ -24,6 +24,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var thirtyNumber: UILabel!
     
     
+    //MARK: reRouting if not logged in 
+    
+    func showCustomLoginVC() {
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
     
     
     func showLoginVC() {

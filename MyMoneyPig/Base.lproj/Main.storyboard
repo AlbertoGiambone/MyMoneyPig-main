@@ -212,7 +212,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdD-1p-Aff">
-                                        <rect key="frame" x="182" y="770" width="50" height="50"/>
+                                        <rect key="frame" x="182" y="755" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ZHk-vd-n6B"/>
                                             <constraint firstAttribute="width" constant="50" id="zji-PJ-9Yr"/>
@@ -231,7 +231,7 @@
                                     <constraint firstItem="Jk8-JD-nbK" firstAttribute="top" secondItem="Mp4-zL-4xr" secondAttribute="top" constant="166" id="2Yp-3g-K3s"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="top" secondItem="zcQ-jL-Ycn" secondAttribute="bottom" constant="-35" id="7mN-F6-ty5"/>
                                     <constraint firstItem="xdD-1p-Aff" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" id="9hF-GV-U2O"/>
-                                    <constraint firstAttribute="bottom" secondItem="xdD-1p-Aff" secondAttribute="bottom" constant="76" id="AwS-qI-wAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="xdD-1p-Aff" secondAttribute="bottom" constant="91" id="AwS-qI-wAc"/>
                                     <constraint firstItem="mK8-P2-08H" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="10" id="COq-wU-lo6"/>
                                     <constraint firstItem="mK8-P2-08H" firstAttribute="leading" secondItem="R2K-aI-7cR" secondAttribute="trailing" constant="-272" id="Cvh-Hd-7AG"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="10" id="FVE-gg-QxZ"/>
@@ -740,19 +740,35 @@
             </objects>
             <point key="canvasLocation" x="4197.1014492753629" y="64.955357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="uyk-Ax-eZI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Hs2-cM-XPI" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Hs2-cM-XPI" customClass="LoginViewController" customModule="MyMoneyPig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eak-Z9-BNq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-0a-IbJ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-0a-IbJ" customClass="RoundButton" customModule="MyMoneyPig" customModuleProvider="target">
                                 <rect key="frame" x="140" y="618" width="131" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="U8E-Uw-SX7" kind="show" id="v7A-Zb-qGr"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-Dv-Q1M">
+                                <rect key="frame" x="87" y="173" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oaP-AS-Dik"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -761,7 +777,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zW-lQ-DuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3462.3188405797105" y="64.955357142857139"/>
+            <point key="canvasLocation" x="-3643" y="-668"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="V0B-X0-tCN">
@@ -848,7 +864,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Hs2-cM-XPI" kind="relationship" relationship="rootViewController" id="Rtx-ai-8RW"/>
+                        <segue destination="U8E-Uw-SX7" kind="relationship" relationship="rootViewController" id="xFF-C8-dD1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2g0-Ea-Pae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -861,6 +877,9 @@
         <designable name="mK8-P2-08H"/>
         <designable name="wsi-lR-dWc"/>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="v7A-Zb-qGr"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Plus Buttom" width="256" height="256"/>
         <image name="Thirty" width="256" height="256"/>
@@ -868,6 +887,7 @@
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="hammer.fill" catalog="system" width="128" height="117"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="placeholdertext.fill" catalog="system" width="80" height="128"/>
         <image name="seven" width="256" height="256"/>
         <systemColor name="linkColor">
