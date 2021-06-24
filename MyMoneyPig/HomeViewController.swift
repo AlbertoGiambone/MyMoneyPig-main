@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, FUIAuthDelegate {
 
     //MARK: Connection
     
@@ -19,13 +19,27 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var monthLabel: UILabel!
     
-    @IBOutlet weak var sevenNumber: UILabel!
+ 
+    //MARK: Action
     
-    @IBOutlet weak var thirtyNumber: UILabel!
+    @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+          } catch let err {
+            print(err)
+          }
+        
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.present(secondVC, animated:true, completion:nil)
+        
+    }
     
     
-    //MARK: reRouting if not logged in 
     
+    
+    
+    //MARK: reRouting if not logged in
+    /*
     func showCustomLoginVC() {
         let loginVC = LoginViewController()
         loginVC.modalPresentationStyle = .fullScreen
@@ -49,19 +63,20 @@ class HomeViewController: UIViewController {
         print("USER.UID: \(user.uid)")
         UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
     }
-    
+    */
     
     //MARK: view Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
+       /*
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.showUserInfo(user:user)
             } else {
-                self.showLoginVC()
+                self.showCustomLoginVC()
             }
         }
-        
+        */
         stodo.removeAll()
         balanceArray.removeAll()
         weekDouble.removeAll()
@@ -70,20 +85,21 @@ class HomeViewController: UIViewController {
         
         fetcFirestore()
         
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     
    
     
     
-    
+    /*
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             print("GREAT!!! You Are Logged in as \(user.uid)")
             UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
         }
     }
-    
+    */
     
     
     func getWeekBalance() {
@@ -138,6 +154,8 @@ class HomeViewController: UIViewController {
         let userCurrency = UserDefaults.standard.object(forKey: "CurrencySet") as? String ?? ""
         let weekSpent = weekDouble.reduce(0, +).truncate(places: 2)
         let monthSpent = monthDouble.reduce(0, +).truncate(places: 2)
+        
+        
         weekLabel.text = String("\(weekSpent) \(userCurrency)")
         monthLabel.text = String("\(monthSpent) \(userCurrency)")
         
@@ -155,12 +173,11 @@ class HomeViewController: UIViewController {
         */
     }
     
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
         navigationController?.navigationBar.barTintColor = UIColor.systemBlue
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -237,7 +254,13 @@ class HomeViewController: UIViewController {
             }
             
             let defCurrency = UserDefaults.standard.object(forKey: "CurrencySet")
+            
+            if stodo.reduce(0, +) == 0 {
+            
             self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
+            }else{
+                self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
+            }
             self.getWeekBalance()
             
             /*

@@ -212,7 +212,6 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let userID = UserDefaults.standard.object(forKey: "userInfo") as! String
         
-        
         let queryRef = db.collection("Price")
         
         queryRef.getDocuments() {(querySnapshot, err) in
@@ -222,6 +221,8 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }else{
                 for documet in querySnapshot!.documents {
                     let r = documet.data()["UID"] as! String
+                    
+                    
                     
                     if r == userID {
                         
