@@ -44,11 +44,12 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 print("ha ciclato su WillAppear")
             } else {
                 //self.showLoginVC()
+                self.tabBarController?.tabBar.isHidden = true
                 print("ha ciclato su WillAppear")
             }
         }
         
-        self.tabBarController?.tabBar.isHidden = true
+        
     }
  
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +65,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 print("ha ciclato su viewDidAppear")
             }
         }
+        
     }
     
     override func viewDidLoad() {
