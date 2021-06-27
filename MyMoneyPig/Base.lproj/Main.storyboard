@@ -756,13 +756,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-Dv-Q1M">
-                                <rect key="frame" x="87" y="202" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Lz1-7p-1Z0"/>
-                                    <constraint firstAttribute="height" constant="128" id="xYk-3Z-SiF"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-0a-IbJ" customClass="RoundButton" customModule="MyMoneyPig" customModuleProvider="target">
                                 <rect key="frame" x="141.5" y="707" width="131" height="35"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -783,14 +776,46 @@
                                     <action selector="LoginTapped:" destination="Hs2-cM-XPI" eventType="touchUpInside" id="Hfz-MB-YzK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyMoneyPig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-cJ-EtS">
+                                <rect key="frame" x="100" y="110" width="214" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="aVg-e2-Hev"/>
+                                    <constraint firstAttribute="height" constant="51" id="qyf-hG-bdh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="30"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Expenses on control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfP-zt-rOJ">
+                                <rect key="frame" x="72" y="169" width="270" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="4Fj-A5-8Px"/>
+                                    <constraint firstAttribute="height" constant="24" id="oFB-Kr-oAn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
+                                <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-Dv-Q1M">
+                                <rect key="frame" x="87" y="215" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Lz1-7p-1Z0"/>
+                                    <constraint firstAttribute="height" constant="128" id="xYk-3Z-SiF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oaP-AS-Dik"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ybg-0a-IbJ" firstAttribute="centerX" secondItem="eak-Z9-BNq" secondAttribute="centerX" id="0Ll-is-sOl"/>
+                            <constraint firstItem="7jo-cJ-EtS" firstAttribute="centerX" secondItem="eak-Z9-BNq" secondAttribute="centerX" id="2dW-uK-eWs"/>
+                            <constraint firstItem="9ac-Dv-Q1M" firstAttribute="top" secondItem="7jo-cJ-EtS" secondAttribute="bottom" constant="54" id="I2a-Rv-7eJ"/>
+                            <constraint firstItem="WfP-zt-rOJ" firstAttribute="centerX" secondItem="eak-Z9-BNq" secondAttribute="centerX" id="KyD-eO-5UM"/>
                             <constraint firstItem="9ac-Dv-Q1M" firstAttribute="centerX" secondItem="eak-Z9-BNq" secondAttribute="centerX" id="LX1-GR-Lkm"/>
+                            <constraint firstItem="7jo-cJ-EtS" firstAttribute="top" secondItem="oaP-AS-Dik" secondAttribute="top" constant="22" id="Odm-mh-IaN"/>
                             <constraint firstItem="oaP-AS-Dik" firstAttribute="bottom" secondItem="ybg-0a-IbJ" secondAttribute="bottom" constant="71" id="Pxj-EZ-lve"/>
-                            <constraint firstItem="9ac-Dv-Q1M" firstAttribute="top" secondItem="oaP-AS-Dik" secondAttribute="top" constant="114" id="VGB-mF-c50"/>
+                            <constraint firstItem="9ac-Dv-Q1M" firstAttribute="top" secondItem="oaP-AS-Dik" secondAttribute="top" constant="127" id="VGB-mF-c50"/>
+                            <constraint firstItem="WfP-zt-rOJ" firstAttribute="top" secondItem="7jo-cJ-EtS" secondAttribute="bottom" constant="8" symbolic="YES" id="mMd-3o-kcS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q4H-rH-a2Q"/>
