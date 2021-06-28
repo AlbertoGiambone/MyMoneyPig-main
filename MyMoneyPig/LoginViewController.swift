@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 self.showUserInfo(user:user)
                 
                 self.performSegue(withIdentifier: "loggedIN", sender: self)
+                
                 print("ha ciclato su WillAppear")
             } else {
                 //self.showLoginVC()
@@ -59,7 +60,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 self.showUserInfo(user:user)
                 
                 self.performSegue(withIdentifier: "loggedIN", sender: self)
-                print("ha ciclato su viewDidAppear")
+                print("ha ciclato su viewDidAppear con tabBar false")
+                
             } else {
                 //self.showLoginVC()
                 print("ha ciclato su viewDidAppear")
@@ -71,10 +73,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        logo.layer.cornerRadius = 64
+        
         
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
@@ -95,9 +102,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     //MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! HomeViewController
+        _ = segue.destination as! initilaViewController
         
     }
     
 
+    //MARK: Connection
+    
+    @IBOutlet weak var logo: UIImageView!
+    
+    
+    
 }

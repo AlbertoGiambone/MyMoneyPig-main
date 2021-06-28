@@ -77,6 +77,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             }
         }
         */
+        self.tabBarController?.tabBar.isHidden = false
+        
         stodo.removeAll()
         balanceArray.removeAll()
         weekDouble.removeAll()
@@ -85,7 +87,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         
         fetcFirestore()
         
-        self.tabBarController?.tabBar.isHidden = false
+        
+        
     }
     
     
@@ -177,7 +180,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         navigationController?.navigationBar.barTintColor = UIColor.systemBlue
@@ -192,11 +194,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         monthDouble.removeAll()
         wholeFirestore.removeAll()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
     
     
     //MARK: Action

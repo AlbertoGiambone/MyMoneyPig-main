@@ -21,6 +21,7 @@
 		A0D824D526830B8400109A42 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D824D426830B8400109A42 /* RoundButton.swift */; };
 		A0D824D726830F6500109A42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D824D626830F6500109A42 /* LoginViewController.swift */; };
 		A0D8A84925DA73C000D9EBAD /* Truncation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8A84825DA73C000D9EBAD /* Truncation.swift */; };
+		A0E09F892689D112009AE150 /* initilaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E09F882689D112009AE150 /* initilaViewController.swift */; };
 		A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */; };
 		A0EB46BF25D00BAB009FCC7A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */; };
 		A0EB46C225D00BC9009FCC7A /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46C125D00BC9009FCC7A /* CustomViewController.swift */; };
@@ -47,6 +48,7 @@
 		A0D824D426830B8400109A42 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A0D824D626830F6500109A42 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0D8A84825DA73C000D9EBAD /* Truncation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Truncation.swift; sourceTree = "<group>"; };
+		A0E09F882689D112009AE150 /* initilaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initilaViewController.swift; sourceTree = "<group>"; };
 		A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A0EB46C125D00BC9009FCC7A /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				A0B8F79825C9542800DD9032 /* AppDelegate.swift */,
 				A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */,
 				A0B8F79E25C9542800DD9032 /* Main.storyboard */,
+				A0E09F882689D112009AE150 /* initilaViewController.swift */,
 				A0D824D626830F6500109A42 /* LoginViewController.swift */,
 				A0C265832639594F00AD4669 /* CLCellTableViewCell.swift */,
 				A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */,
@@ -264,6 +267,7 @@
 				A0C265842639594F00AD4669 /* CLCellTableViewCell.swift in Sources */,
 				A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */,
 				A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */,
+				A0E09F892689D112009AE150 /* initilaViewController.swift in Sources */,
 				A0B8F79B25C9542800DD9032 /* SceneDelegate.swift in Sources */,
 				A0D8A84925DA73C000D9EBAD /* Truncation.swift in Sources */,
 				A0EB46C225D00BC9009FCC7A /* CustomViewController.swift in Sources */,
