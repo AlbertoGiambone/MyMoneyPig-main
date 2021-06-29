@@ -51,8 +51,18 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         dateTextField.text = dayFormatter.string(from: newDate!)
        }
     
+    
+    //MARK: Lifcycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
         //MARK: Picker Settigs
         
@@ -155,16 +165,8 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         }else{
             print("NO AMOUNT!")
             }
-        
-        
-        
         navigationController?.popViewController(animated: true)
     }
-    
-    
-    
-    
-    
     
 
 }

@@ -75,13 +75,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
 
         logo.layer.cornerRadius = 64
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        
-    }
+    
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {

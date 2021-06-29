@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             print(err)
           }
         
-        let secondVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "initilaViewController") as! initilaViewController
         self.present(secondVC, animated:true, completion:nil)
         
     }
@@ -39,13 +39,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     
     //MARK: reRouting if not logged in
-    /*
-    func showCustomLoginVC() {
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        self.present(loginVC, animated: true, completion: nil)
-    }
-    
     
     func showLoginVC() {
         let autUI = FUIAuth.defaultAuthUI()
@@ -63,20 +56,20 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         print("USER.UID: \(user.uid)")
         UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
     }
-    */
+    
     
     //MARK: view Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
-       /*
+       
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.showUserInfo(user:user)
             } else {
-                self.showCustomLoginVC()
+                print("USER NOT LOGGED_IN")
             }
         }
-        */
+        
         self.tabBarController?.tabBar.isHidden = false
         
         stodo.removeAll()
@@ -95,14 +88,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
    
     
     
-    /*
+    
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             print("GREAT!!! You Are Logged in as \(user.uid)")
             UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
         }
     }
-    */
+    
     
     
     func getWeekBalance() {
@@ -185,6 +178,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         navigationController?.navigationBar.barTintColor = UIColor.systemBlue
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -200,7 +194,16 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func addBillButtonPressed(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "addBill", sender: nil)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                //self.showUserInfo(user:user)
+                self.performSegue(withIdentifier: "addBill", sender: nil)
+            } else {
+                self.showLoginVC()
+            }
+        }
+        
+        
     }
     
     
