@@ -23,13 +23,19 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     //MARK: Action
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
         do {
             try Auth.auth().signOut()
           } catch let err {
             print(err)
-          }
-        
-        let secondVC = storyboard?.instantiateViewController(withIdentifier: "initilaViewController") as! initilaViewController
+                }
+            }else{
+                print("You are Already logged in!!!")
+            }
+        }
+            let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.present(secondVC, animated:true, completion:nil)
         
     }
@@ -179,6 +185,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+    
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

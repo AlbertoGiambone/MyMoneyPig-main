@@ -101,12 +101,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         self.showLoginVC()
     }
     
-    //MARK: Segue
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        _ = segue.destination as! initilaViewController
-        
-    }
+   
     
 
     //MARK: Connection

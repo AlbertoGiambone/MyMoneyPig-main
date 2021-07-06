@@ -30,7 +30,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
+        if billsOrdered.count != 0 {
         
         if segment.selectedSegmentIndex == 1 {
             return positiveOrdered.count
@@ -40,6 +40,9 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }else {
             return billsOrdered.count
             }
+        }else{
+            return 0
+        }
         
     }
     
@@ -265,7 +268,13 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "userInfo") != nil {
+        
         FetchFirestoreData()
+        }else{
+            print("User Not Logged in!!!")
+        }
         table.reloadData()
     }
     
