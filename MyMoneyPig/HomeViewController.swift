@@ -33,6 +33,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
                 }
             }else{
                 print("You are Already logged in!!!")
+                self.tabBarItem.image = UIImage(named: "people.circle.fill")
+        
             }
         }
             let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -44,18 +46,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     
     
-    //MARK: reRouting if not logged in
-    
-    func showLoginVC() {
-        let autUI = FUIAuth.defaultAuthUI()
-        let providers = [FUIOAuth.appleAuthProvider()]
-        
-        autUI?.providers = providers
-        
-        let autViewController = autUI!.authViewController()
-        autViewController.modalPresentationStyle = .fullScreen
-        self.present(autViewController, animated: true, completion: nil)
-    }
+   
     
     func showUserInfo(user:User) {
         
@@ -72,8 +63,19 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             if let user = user {
                 self.showUserInfo(user:user)
             } else {
-                print("USER NOT LOGGED_IN")
+                print("USER GOING to be Anonymous!")
+                Auth.auth().signInAnonymously { (user, error) in
+                           if let error = error {
+                             print("Sign in failed:", error.localizedDescription)
+
+                           } else {
+                            print("Signed in as: \(UserInfo.self)")
+                            
+                           }
+                        }
             }
+            
+        
         }
         
         self.tabBarController?.tabBar.isHidden = false
@@ -203,16 +205,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func addBillButtonPressed(_ sender: UIButton) {
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                //self.showUserInfo(user:user)
-                self.performSegue(withIdentifier: "addBill", sender: nil)
-            } else {
-                self.showLoginVC()
-            }
-        }
         
         
+        self.performSegue(withIdentifier: "addBill", sender: nil)
     }
     
     

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ipn-Vk-laM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,24 +32,22 @@
                                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIV-YG-sUa">
-                                                <rect key="frame" x="8" y="253" width="398" height="3"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-PN-aPk">
+                                                <rect key="frame" x="8" y="261" width="398" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="398" id="6cK-gT-bQ7"/>
-                                                    <constraint firstAttribute="height" constant="3" id="mJX-6i-cOJ"/>
+                                                    <constraint firstAttribute="height" constant="45" id="2Xg-07-P2U"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Sync with other Device"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
+                                            <constraint firstItem="f8h-PN-aPk" firstAttribute="leading" secondItem="nmI-Bc-fZu" secondAttribute="leading" constant="8" id="6ET-Bj-f3T"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="centerX" secondItem="nmI-Bc-fZu" secondAttribute="centerX" id="GiN-1O-UZP"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="top" secondItem="nmI-Bc-fZu" secondAttribute="top" constant="208" id="MxP-Qf-MhS"/>
-                                            <constraint firstItem="bIV-YG-sUa" firstAttribute="top" secondItem="RGF-k2-KE1" secondAttribute="bottom" id="TKt-uc-1zG"/>
-                                            <constraint firstItem="bIV-YG-sUa" firstAttribute="centerX" secondItem="nmI-Bc-fZu" secondAttribute="centerX" id="isz-Rq-TYD"/>
+                                            <constraint firstItem="f8h-PN-aPk" firstAttribute="top" secondItem="RGF-k2-KE1" secondAttribute="bottom" constant="8" symbolic="YES" id="Qg7-6x-Uha"/>
+                                            <constraint firstAttribute="trailing" secondItem="f8h-PN-aPk" secondAttribute="trailing" constant="8" id="fna-ty-3fm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -102,31 +99,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mp4-zL-4xr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jk8-JD-nbK">
-                                        <rect key="frame" x="172" y="166" width="70" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="GRX-2F-eeA"/>
-                                            <constraint firstAttribute="height" constant="21" id="aZt-UC-qaz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="11"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-Wg-vCM" customClass="RoundLabel" customModule="MyMoneyPig" customModuleProvider="target">
-                                        <rect key="frame" x="9" y="100" width="396" height="87"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="396" id="Iml-Ra-f4M"/>
-                                            <constraint firstAttribute="height" constant="87" id="K6V-UU-JN2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="40"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK8-P2-08H" customClass="RoundLabel" customModule="MyMoneyPig" customModuleProvider="target">
                                         <rect key="frame" x="10" y="290" width="394" height="93"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -223,32 +195,57 @@
                                             <action selector="addBillButtonPressed:" destination="U8E-Uw-SX7" eventType="touchUpInside" id="Q3v-II-JiT"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jk8-JD-nbK">
+                                        <rect key="frame" x="171" y="209" width="70" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="GRX-2F-eeA"/>
+                                            <constraint firstAttribute="height" constant="21" id="aZt-UC-qaz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="11"/>
+                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-Wg-vCM" customClass="RoundLabel" customModule="MyMoneyPig" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="143" width="396" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="396" id="Iml-Ra-f4M"/>
+                                            <constraint firstAttribute="height" constant="87" id="K6V-UU-JN2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="40"/>
+                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" id="0By-St-sLA"/>
+                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" constant="-1" id="0By-St-sLA"/>
                                     <constraint firstItem="z6J-Sr-iXr" firstAttribute="top" secondItem="zcQ-jL-Ycn" secondAttribute="bottom" constant="11" id="0gj-Qc-41I"/>
-                                    <constraint firstItem="Jk8-JD-nbK" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" id="216-oI-Fi6"/>
-                                    <constraint firstItem="Jk8-JD-nbK" firstAttribute="top" secondItem="Mp4-zL-4xr" secondAttribute="top" constant="166" id="2Yp-3g-K3s"/>
+                                    <constraint firstItem="Jk8-JD-nbK" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" constant="-1" id="216-oI-Fi6"/>
+                                    <constraint firstItem="Jk8-JD-nbK" firstAttribute="top" secondItem="Mp4-zL-4xr" secondAttribute="top" constant="209" id="2Yp-3g-K3s"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="top" secondItem="zcQ-jL-Ycn" secondAttribute="bottom" constant="-35" id="7mN-F6-ty5"/>
                                     <constraint firstItem="xdD-1p-Aff" firstAttribute="centerX" secondItem="Mp4-zL-4xr" secondAttribute="centerX" id="9hF-GV-U2O"/>
                                     <constraint firstAttribute="bottom" secondItem="xdD-1p-Aff" secondAttribute="bottom" constant="106" id="AwS-qI-wAc"/>
                                     <constraint firstItem="mK8-P2-08H" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="10" id="COq-wU-lo6"/>
                                     <constraint firstItem="mK8-P2-08H" firstAttribute="leading" secondItem="R2K-aI-7cR" secondAttribute="trailing" constant="-272" id="Cvh-Hd-7AG"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="10" id="FVE-gg-QxZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="NfO-Wg-vCM" secondAttribute="trailing" constant="9" id="GAj-FY-imi"/>
+                                    <constraint firstAttribute="trailing" secondItem="NfO-Wg-vCM" secondAttribute="trailing" constant="10" id="GAj-FY-imi"/>
                                     <constraint firstItem="h6c-T5-Ehj" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="17" id="GDW-9p-m3b"/>
-                                    <constraint firstItem="R2K-aI-7cR" firstAttribute="top" secondItem="Jk8-JD-nbK" secondAttribute="bottom" constant="112" id="Nez-wF-qNG"/>
+                                    <constraint firstItem="R2K-aI-7cR" firstAttribute="top" secondItem="Jk8-JD-nbK" secondAttribute="bottom" constant="69" id="Nez-wF-qNG"/>
                                     <constraint firstAttribute="trailing" secondItem="mK8-P2-08H" secondAttribute="trailing" constant="10" id="OH9-Pp-qkF"/>
                                     <constraint firstAttribute="trailing" secondItem="wsi-lR-dWc" secondAttribute="trailing" constant="10" id="Var-rO-wxx"/>
                                     <constraint firstItem="Lgt-jm-u7P" firstAttribute="top" secondItem="R2K-aI-7cR" secondAttribute="bottom" constant="12" id="Y1I-GU-Wje"/>
                                     <constraint firstItem="zcQ-jL-Ycn" firstAttribute="leading" secondItem="h6c-T5-Ehj" secondAttribute="trailing" constant="35" id="YD3-oc-7DW"/>
                                     <constraint firstItem="gx3-Nj-Sr4" firstAttribute="top" secondItem="mK8-P2-08H" secondAttribute="bottom" constant="-84" id="cmk-sx-xuz"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="top" secondItem="h6c-T5-Ehj" secondAttribute="bottom" constant="-50" id="hP4-aV-brs"/>
-                                    <constraint firstItem="mK8-P2-08H" firstAttribute="top" secondItem="Jk8-JD-nbK" secondAttribute="bottom" constant="103" id="igZ-SO-gsT"/>
-                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="top" secondItem="Mp4-zL-4xr" secondAttribute="top" constant="100" id="jCE-dN-Ysw"/>
+                                    <constraint firstItem="mK8-P2-08H" firstAttribute="top" secondItem="Jk8-JD-nbK" secondAttribute="bottom" constant="60" id="igZ-SO-gsT"/>
+                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="top" secondItem="Mp4-zL-4xr" secondAttribute="top" constant="143" id="jCE-dN-Ysw"/>
                                     <constraint firstItem="wsi-lR-dWc" firstAttribute="top" secondItem="mK8-P2-08H" secondAttribute="bottom" constant="19" id="mQm-jV-5K7"/>
-                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="9" id="mXA-IN-W91"/>
+                                    <constraint firstItem="NfO-Wg-vCM" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="8" id="mXA-IN-W91"/>
                                     <constraint firstItem="gx3-Nj-Sr4" firstAttribute="leading" secondItem="Mp4-zL-4xr" secondAttribute="leading" constant="17" id="vI3-tb-ayC"/>
                                     <constraint firstItem="z6J-Sr-iXr" firstAttribute="leading" secondItem="h6c-T5-Ehj" secondAttribute="trailing" constant="35" id="vqe-iE-olq"/>
                                     <constraint firstItem="mK8-P2-08H" firstAttribute="leading" secondItem="Lgt-jm-u7P" secondAttribute="trailing" constant="-221" id="z1X-36-uEn"/>
