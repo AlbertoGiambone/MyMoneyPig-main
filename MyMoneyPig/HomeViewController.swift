@@ -19,24 +19,26 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBOutlet weak var monthLabel: UILabel!
     
- 
+    @IBOutlet weak var logButton: UIBarButtonItem!
+    
+    
+    
     //MARK: Action
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-        do {
-            try Auth.auth().signOut()
-          } catch let err {
-            print(err)
-                }
-            }else{
-                print("You are Already logged in!!!")
-                self.tabBarItem.image = UIImage(named: "people.circle.fill")
-        
-            }
-        }
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if let user = user {
+//        do {
+//            try Auth.auth().signOut()
+//          } catch let err {
+//            print(err)
+//                }
+//            }else{
+//                print("You are Already logged in!!!")
+//
+//            }
+//        }
             let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.present(secondVC, animated:true, completion:nil)
         
@@ -48,35 +50,53 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
    
     
-    func showUserInfo(user:User) {
-        
-        print("USER.UID: \(user.uid)")
-        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
-    }
+//    func showUserInfo(user:User) {
+//
+//        print("USER.UID: \(user.uid)")
+//        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+//    }
     
     
     //MARK: view Lifecycle
     
+    var userID: String?
+    
     override func viewWillAppear(_ animated: Bool) {
-       
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.showUserInfo(user:user)
-            } else {
-                print("USER GOING to be Anonymous!")
-                Auth.auth().signInAnonymously { (user, error) in
-                           if let error = error {
-                             print("Sign in failed:", error.localizedDescription)
-
-                           } else {
-                            print("Signed in as: \(UserInfo.self)")
-                            
-                           }
-                        }
-            }
-            
         
+        userID = UserDefaults.standard.object(forKey: "ID") as? String
+        
+        if userID == nil {
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let user = authResult?.user else { return }
+            let isAnonymous = user.isAnonymous  // true
+            UserDefaults.standard.setValue(user.uid, forKey: "ID")
+            if isAnonymous == true {
+                print("User is already signed in with UID \(user.uid)")
+                }
+            
+            }
         }
+        
+        
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if let user = user {
+//                self.showUserInfo(user:user)
+//                self.logButton.setBackgroundImage(UIImage(systemName: "power"), for: .normal, barMetrics: .default)
+//            } else {
+//                print("USER GOING to be Anonymous!")
+//                Auth.auth().signInAnonymously { (user, error) in
+//                           if let error = error {
+//                             print("Sign in failed:", error.localizedDescription)
+//
+//                           } else {
+//                            print("Signed in as: \(UserInfo.self)")
+//                            self.logButton.setBackgroundImage(UIImage(systemName: "person.fill.badge.plus"), for: .normal, barMetrics: .default)
+//                           }
+//                        }
+//            }
+//
+//
+//        }
         
         self.tabBarController?.tabBar.isHidden = false
         
@@ -97,12 +117,12 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     
     
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if let user = authDataResult?.user {
-            print("GREAT!!! You Are Logged in as \(user.uid)")
-            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
-        }
-    }
+//    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+//        if let user = authDataResult?.user {
+//            print("GREAT!!! You Are Logged in as \(user.uid)")
+//            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+//        }
+//    }
     
     
     
