@@ -27,20 +27,15 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
         
-//        Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if let user = user {
-//        do {
-//            try Auth.auth().signOut()
-//          } catch let err {
-//            print(err)
-//                }
-//            }else{
-//                print("You are Already logged in!!!")
-//
-//            }
-//        }
-            let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        self.present(secondVC, animated:true, completion:nil)
+        if userAPPLE != nil {
+        do {
+            try Auth.auth().signOut()
+          } catch let err {
+            print(err)
+                }
+        }
+//            let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//        self.present(secondVC, animated:true, completion:nil)
         
     }
     
@@ -50,53 +45,51 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
    
     
-//    func showUserInfo(user:User) {
-//
-//        print("USER.UID: \(user.uid)")
-//        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
-//    }
+    func showUserInfo(user:User) {
+
+        print("USER.UID: \(user.uid)")
+        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+    }
     
     
     //MARK: view Lifecycle
     
-    var userID: String?
+    var userIDA: String?
+    var userAPPLE: String?
     
     override func viewWillAppear(_ animated: Bool) {
         
-        userID = UserDefaults.standard.object(forKey: "ID") as? String
+        userIDA = UserDefaults.standard.object(forKey: "ID") as? String
         
-        if userID == nil {
+        if userIDA == nil {
         Auth.auth().signInAnonymously { authResult, error in
             guard let user = authResult?.user else { return }
             let isAnonymous = user.isAnonymous  // true
             UserDefaults.standard.setValue(user.uid, forKey: "ID")
             if isAnonymous == true {
-                print("User is already signed in with UID \(user.uid)")
+                print("User is signed in with UID \(user.uid)")
                 }
             
             }
         }
+        if userIDA != nil {
+            fetchAnonymousFirestore()
+        }
+        
+        userAPPLE = UserDefaults.standard.object(forKey: "userInfo") as? String
+
+        if userAPPLE != nil {
+            
+            Auth.auth().addStateDidChangeListener { (auth, user) in
+                if let user = user {
+                    self.showUserInfo(user:user)
+                } else {
+                    print("User non Apple Logged!!")
+                }
+            }
+        }
         
         
-//        Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if let user = user {
-//                self.showUserInfo(user:user)
-//                self.logButton.setBackgroundImage(UIImage(systemName: "power"), for: .normal, barMetrics: .default)
-//            } else {
-//                print("USER GOING to be Anonymous!")
-//                Auth.auth().signInAnonymously { (user, error) in
-//                           if let error = error {
-//                             print("Sign in failed:", error.localizedDescription)
-//
-//                           } else {
-//                            print("Signed in as: \(UserInfo.self)")
-//                            self.logButton.setBackgroundImage(UIImage(systemName: "person.fill.badge.plus"), for: .normal, barMetrics: .default)
-//                           }
-//                        }
-//            }
-//
-//
-//        }
         
         self.tabBarController?.tabBar.isHidden = false
         
@@ -106,23 +99,44 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
         monthDouble.removeAll()
         wholeFirestore.removeAll()
         
-        fetcFirestore()
+        //fetcFirestore()
         
         
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
+    
+        
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stodo.removeAll()
+        balanceArray.removeAll()
+        weekDouble.removeAll()
+        monthDouble.removeAll()
+        wholeFirestore.removeAll()
+    }
     
    
     
     
     
-//    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-//        if let user = authDataResult?.user {
-//            print("GREAT!!! You Are Logged in as \(user.uid)")
-//            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
-//        }
-//    }
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if let user = authDataResult?.user {
+            print("GREAT!!! You Are Logged in as \(user.uid)")
+            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+        }
+    }
     
     
     
@@ -198,27 +212,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     }
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        
-        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.navigationItem.backBarButtonItem?.tintColor = .white
     
-        
-        
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        stodo.removeAll()
-        balanceArray.removeAll()
-        weekDouble.removeAll()
-        monthDouble.removeAll()
-        wholeFirestore.removeAll()
-    }
     
     
     //MARK: Action
@@ -268,6 +262,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
                         self.balanceArray.append(documet.data()["amount"] as! String)
                         self.wholeFirestore.append(conto(UID: documet.data()["UID"] as! String, subject: documet.data()["subject"] as! String, BillDate: d, amount: documet.data()["amount"] as! String, docID: documet.documentID, sign: documet.data()["sign"] as! String))
                     }
+                    
                 }
             }
             
@@ -304,4 +299,52 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
 
 
     }
+    
+    func fetchAnonymousFirestore() {
+        
+        
+        dataB.collection("Price").getDocuments() { [self](querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting Firestore data: \(err)")
+            }else{
+                for documet in querySnapshot!.documents {
+        
+                    let r = documet.data()["UID"] as! String
+                    
+                    if r == userIDA {
+                        let formatter = DateFormatter()
+                        formatter.dateStyle = .short
+                        let d: Date = formatter.date(from: documet.data()["Bill date"] as! String)!
+                        
+                        self.balanceArray.append(documet.data()["amount"] as! String)
+                        self.wholeFirestore.append(conto(UID: documet.data()["UID"] as! String, subject: documet.data()["subject"] as! String, BillDate: d, amount: documet.data()["amount"] as! String, docID: documet.documentID, sign: documet.data()["sign"] as! String))
+                    }
+                }
+            }
+            
+            
+            
+            for y in self.wholeFirestore {
+                if y.sign == "false" {
+                    self.stodo.append(Double("-\(y.amount)")!)
+                }else{
+                    self.stodo.append(Double(y.amount)!)
+                }
+            }
+            
+            let defCurrency = UserDefaults.standard.object(forKey: "CurrencySet")
+            
+            if stodo.reduce(0, +) == 0 {
+            
+            self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
+            }else{
+                self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
+            }
+            self.getWeekBalance()
+        
+        }
+        
+    }
+    
 }

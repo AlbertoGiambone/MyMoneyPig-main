@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseUI
+import Firebase
 
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -13,7 +15,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var currencyTextField: UITextField!
     
-
+    @IBOutlet weak var syncButton: UIButton!
+    
     //MARK: Picker settings
 
     
@@ -52,8 +55,27 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var currency: [(moneylabel: String, akrLabel: String)] = [("🇪🇺EUR EU Euro", "🇪🇺€"), ("🇺🇸USD US dollar", "🇺🇸$"), ("🇯🇵JPY Japanese yen", "🇯🇵¥"), ("🇧🇬BGN Bulgarian lev", "🇧🇬BGN"), ("🇨🇿CZK Czech koruna", "🇨🇿Kč"), ("🇩🇰DKK Danish krone", "🇩🇰kr"), ("🇬🇧GBP Pound sterling", "🇬🇧£"), ("🇭🇺HUF Hungarian forint", "🇭🇺Ft"), ("🇵🇱PLN Polish zloty", "🇵🇱zł"), ("🇷🇴RON Romanian leu", "🇷🇴L"), ("🇸🇪SEK Swedish krona", "🇸🇪kr"), ("🇨🇭CHF Swiss franc", "🇨🇭Fr"), ("🇮🇸ISK Icelandic krona", "🇮🇸Íkr"), ("🇳🇴NOK Norwegian krone", "🇳🇴kr"), ("🇷🇺RUB Russian rouble", "🇷🇺₽"), ("🇹🇷TRY Turkish lira", "🇹🇷₺"), ("🇦🇺AUD Australian dollar", "🇦🇺$"), ("🇧🇷BRL Brazilian real", "🇧🇷R$"), ("🇨🇦CAD Canadian dollar", "🇨🇦$"), ("🇨🇳CNY Chinese yuan renminbi", "🇨🇳元"), ("🇭🇰HKD Hong Kong dollar", "🇭🇰$"), ("🇮🇩IDR Indonesian rupiah", "🇮🇩Rp"), ("🇮🇱ILS Israeli shekel", "🇮🇱₪"), ("🇮🇳INR Indian rupee", "🇮🇳₹"), ("🇰🇷KRW South Korean won", "🇰🇷₩"), ("🇲🇽MXN Mexican peso", "🇲🇽$"), ("🇲🇾MYR Malaysian ringgit", "🇲🇾RM"), ("🇳🇿NZD New Zealand dollar", "🇳🇿$"), ("🇵🇭PHP Philippine peso", "🇵🇭₱"), ("🇵🇭SGD Singapore dollar", "🇸🇬S$"), ("🇹🇭THB Thai baht", "🇹🇭฿"), ("🇿🇦ZAR South African rand", "🇿🇦R")]
     
     
+    //MARK SyncButton settings
     
     
+    @IBAction func SyncButtonpressed(_ sender: UIButton) {
+        
+        showLoginVC()
+        
+    }
+    
+    //MARK: Login Page creation
+    
+    func showLoginVC() {
+        let autUI = FUIAuth.defaultAuthUI()
+        let providers = [FUIOAuth.appleAuthProvider()]
+        
+        autUI?.providers = providers
+        
+        let autViewController = autUI!.authViewController()
+        autViewController.modalPresentationStyle = .fullScreen
+        self.present(autViewController, animated: true, completion: nil)
+    }
     
     
     //DoneButton
@@ -63,6 +85,13 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     //MARK: lifeCycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.object(forKey: "userInfo") != nil {
+            syncButton.alpha = 0
+            syncButton.isEnabled = false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

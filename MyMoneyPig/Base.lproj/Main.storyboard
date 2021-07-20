@@ -39,6 +39,9 @@
                                                     <constraint firstAttribute="height" constant="45" id="2Xg-07-P2U"/>
                                                 </constraints>
                                                 <state key="normal" title="Sync with other Device"/>
+                                                <connections>
+                                                    <action selector="SyncButtonpressed:" destination="OqL-he-VDS" eventType="touchUpInside" id="aiu-5k-XsI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -77,6 +80,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="GMi-8E-7gy"/>
                     <connections>
                         <outlet property="currencyTextField" destination="RGF-k2-KE1" id="9qK-Nu-RCB"/>
+                        <outlet property="syncButton" destination="f8h-PN-aPk" id="OvU-Qz-Qp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boz-w2-TAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -270,7 +274,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="2vj-A9-Jgu">
-                        <barButtonItem key="rightBarButtonItem" width="40" style="done" id="Jkp-Qa-h9C">
+                        <barButtonItem key="rightBarButtonItem" image="power" catalog="system" width="40" style="done" id="Jkp-Qa-h9C">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="LoginButtonTapped:" destination="U8E-Uw-SX7" id="iUp-94-2Ol"/>
@@ -859,6 +863,7 @@
         <image name="hammer.fill" catalog="system" width="128" height="117"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="placeholdertext.fill" catalog="system" width="80" height="128"/>
+        <image name="power" catalog="system" width="128" height="124"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -119,6 +119,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         
         if amountTextField.hasText == true {
             
+            if UserDefaults.standard.object(forKey: "userInfo") != nil {
             if segment.selectedSegmentIndex == 0 {
                 
                 var amountText = amountTextField.text
@@ -166,10 +167,60 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             print("NO AMOUNT!")
             }
         navigationController?.popViewController(animated: true)
+        }
+        if UserDefaults.standard.object(forKey: "ID") != nil {
+            if segment.selectedSegmentIndex == 0 {
+                
+                var amountText = amountTextField.text
+                amountText?.replace(",", with: ".")
+                if Double(amountText!) == nil {
+                    saveButton.isEnabled = true
+                    print("SAVE BUTTON DISABLED!")
+                }else{
+                db.collection("Price").addDocument(data: [
+                    "UID": UserDefaults.standard.object(forKey: "ID") as! String,
+                    "subject": String(subjectTextField.text ?? ""),
+                    "Bill date": String(dateTextField.text ?? ""),
+                    "amount": String("\(amountText!)"),
+                    "sign": String("false")
+                ]) {
+                    err in
+                    if let err = err {
+                        print("Error adding bill: \(err)")
+                    }else{
+                        
+                        }
+                    }
+                }
+            }else{
+            
+                var amountText = amountTextField.text
+                amountText?.replace(",", with: ".")
+            db.collection("Price").addDocument(data: [
+                "UID": UserDefaults.standard.object(forKey: "ID") as! String,
+                "subject": String(subjectTextField.text ?? ""),
+                "Bill date": String(dateTextField.text ?? ""),
+                "amount": String(amountText!),
+                "sign": String("true")
+            ]) {
+                err in
+                if let err = err {
+                    print("Error adding bill: \(err)")
+                }else{
+                    
+                }
+            }
+        }
+            
+        }else{
+            print("NO AMOUNT!")
+            }
+        navigationController?.popViewController(animated: true)
+        }
+        
     }
-    
 
-}
+
 
 
 //MARK: use . instead of , in DOUBLE value
