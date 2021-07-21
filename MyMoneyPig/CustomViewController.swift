@@ -272,6 +272,8 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if UserDefaults.standard.object(forKey: "userInfo") != nil {
         
         FetchFirestoreData()
+            
+            print("user is logged as \(UserDefaults.standard.object(forKey: "userInfo") ?? "NO USER")")
         }else{
             print("User Not Logged in!!!")
         }

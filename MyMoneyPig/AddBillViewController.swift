@@ -54,16 +54,9 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Lifcycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
+         
         //MARK: Picker Settigs
         
         datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 200))
@@ -125,7 +118,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                 var amountText = amountTextField.text
                 amountText?.replace(",", with: ".")
                 if Double(amountText!) == nil {
-                    saveButton.isEnabled = true
+                    saveButton.isEnabled = false
                     print("SAVE BUTTON DISABLED!")
                 }else{
                 db.collection("Price").addDocument(data: [
@@ -159,10 +152,9 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                     print("Error adding bill: \(err)")
                 }else{
                     
+                    }
                 }
             }
-        }
-            
         }else{
             print("NO AMOUNT!")
             }
@@ -174,7 +166,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                 var amountText = amountTextField.text
                 amountText?.replace(",", with: ".")
                 if Double(amountText!) == nil {
-                    saveButton.isEnabled = true
+                    saveButton.isEnabled = false
                     print("SAVE BUTTON DISABLED!")
                 }else{
                 db.collection("Price").addDocument(data: [
