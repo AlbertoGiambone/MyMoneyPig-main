@@ -27,9 +27,11 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
         
-        if userAPPLE != nil {
+        if UserDefaults.standard.object(forKey: "userInfo") != nil {
         do {
             try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "userInfo")
+            
           } catch let err {
             print(err)
                 }
@@ -60,8 +62,9 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         userIDA = UserDefaults.standard.object(forKey: "ID") as? String
-        
-        if userIDA == nil {
+        userAPPLE = UserDefaults.standard.object(forKey: "userInfo") as? String
+
+        if userIDA == nil && userAPPLE == nil {
         Auth.auth().signInAnonymously { authResult, error in
             guard let user = authResult?.user else { return }
             let isAnonymous = user.isAnonymous  // true
@@ -72,21 +75,22 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             
             }
         }
-        if userIDA != nil {
+        if userIDA != nil && userAPPLE == nil {
             fetchAnonymousFirestore()
+            print("User signed in Anonymously")
         }
         
-        userAPPLE = UserDefaults.standard.object(forKey: "userInfo") as? String
-
-        if userAPPLE != nil {
+        if userAPPLE != nil && userIDA == nil {
             
             Auth.auth().addStateDidChangeListener { (auth, user) in
                 if let user = user {
                     self.showUserInfo(user:user)
+                    print("User signed in with Apple")
                 } else {
                     print("User non Apple Logged!!")
                 }
             }
+            fetcFirestore()
         }
         
         

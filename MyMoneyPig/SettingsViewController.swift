@@ -59,9 +59,25 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     @IBAction func SyncButtonpressed(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "ID")
+            
+          } catch let err {
+            print(err)
+                }
         
-        showLoginVC()
         
+        if UserDefaults.standard.object(forKey: "userInfo") == nil {
+            Auth.auth().addStateDidChangeListener { (auth, user) in
+                if let user = user {
+                    self.showUserInfo(user:user)
+                } else {
+                    self.showLoginVC()
+                }
+            }
+        }
+    
     }
     
     //MARK: Login Page creation
@@ -77,8 +93,28 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.present(autViewController, animated: true, completion: nil)
     }
     
+    //MARK: Apple sign in process
+    
+    func showUserInfo(user:User) {
+        
+        print("USER.UID: \(user.uid)")
+        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if let AppleUser = authDataResult?.user {
+            print("GREAT!!! You Are Logged in as Apple User ID: \(AppleUser.uid)")
+            UserDefaults.standard.setValue(AppleUser.uid, forKey: "userInfo")
+            //DELETING ANONYMOUS ID
+            UserDefaults.standard.removeObject(forKey: "ID")
+            print("ID removed")
+        }
+    }
+    
+    
     
     //DoneButton
+    
     @objc func doneClicked() {
         view.endEditing(true)
     }

@@ -38,7 +38,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="2Xg-07-P2U"/>
                                                 </constraints>
-                                                <state key="normal" title="Sync with other Device"/>
+                                                <state key="normal" title="Sign in or Log in"/>
                                                 <connections>
                                                     <action selector="SyncButtonpressed:" destination="OqL-he-VDS" eventType="touchUpInside" id="aiu-5k-XsI"/>
                                                 </connections>
@@ -278,6 +278,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="LoginButtonTapped:" destination="U8E-Uw-SX7" id="iUp-94-2Ol"/>
+                                <segue destination="U8E-Uw-SX7" kind="show" id="gK4-bY-ZP0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -489,7 +490,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-wA-snN">
-                                                                    <rect key="frame" x="20" y="15" width="85" height="20"/>
+                                                                    <rect key="frame" x="7" y="15" width="98" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="naG-wj-q0W"/>
                                                                     </constraints>
@@ -505,7 +506,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="rkV-kj-dJV" firstAttribute="leading" secondItem="wiP-wA-snN" secondAttribute="trailing" constant="14" id="3zl-CY-JdK"/>
-                                                                <constraint firstItem="wiP-wA-snN" firstAttribute="leading" secondItem="fVS-Tb-8LY" secondAttribute="leading" constant="20" symbolic="YES" id="Jfn-s7-VB4"/>
+                                                                <constraint firstItem="wiP-wA-snN" firstAttribute="leading" secondItem="fVS-Tb-8LY" secondAttribute="leading" constant="7" id="Jfn-s7-VB4"/>
                                                                 <constraint firstItem="SAF-KP-y51" firstAttribute="leading" secondItem="fVS-Tb-8LY" secondAttribute="leadingMargin" constant="99" id="Lhi-eq-htK"/>
                                                                 <constraint firstAttribute="bottom" secondItem="SAF-KP-y51" secondAttribute="bottom" constant="1" id="Mu4-qy-TOx"/>
                                                                 <constraint firstAttribute="bottom" secondItem="wiP-wA-snN" secondAttribute="bottom" constant="15" id="NIX-Jx-XMI"/>

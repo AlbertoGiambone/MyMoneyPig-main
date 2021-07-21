@@ -262,6 +262,58 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    func fetchFirestoreAnonymous() {
+        
+        let userIDA = UserDefaults.standard.object(forKey: "ID") as! String
+        
+        let queryRef = db.collection("Price")
+        
+        queryRef.getDocuments() {(querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting Firestore data: \(err)")
+            }else{
+                for documet in querySnapshot!.documents {
+                    let r = documet.data()["UID"] as! String
+                    
+                    
+                    
+                    if r == userIDA {
+                        
+                        let formatter = DateFormatter()
+                        formatter.dateStyle = .short
+                        let d: Date = formatter.date(from: documet.data()["Bill date"] as! String)!
+                        
+                        let t = conto(UID: documet.data()["UID"] as! String, subject: documet.data()["subject"] as! String, BillDate: d, amount: documet.data()["amount"] as! String, docID: documet.documentID, sign: documet.data()["sign"] as! String)
+                    
+                        self.bills.append(t)
+                        
+                        self.billsOrdered = self.bills.sorted(by: {$1.BillDate < $0.BillDate})
+                        
+                        let segno = documet.data()["sign"] as! String
+                        
+                        if segno == "false" {
+                            self.negativeArray.append(t)
+                            self.negativeOrdered = self.negativeArray.sorted(by: {$1.BillDate < $0.BillDate})
+                        }
+                        if segno == "true" {
+                            self.positiveArray.append(t)
+                            self.positiveOrdered = self.positiveArray.sorted(by: {$1.BillDate < $0.BillDate})
+                        }
+                        
+                        self.table.reloadData()
+                    }
+                    
+                }
+            }
+            
+            
+        }
+        
+        
+        
+    }
+    
     
     
     //MARK: Lifecycle
@@ -269,11 +321,17 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.object(forKey: "userInfo") != nil {
+        if UserDefaults.standard.object(forKey: "userInfo") != nil && UserDefaults.standard.object(forKey: "ID") == nil {
         
         FetchFirestoreData()
             
             print("user is logged as \(UserDefaults.standard.object(forKey: "userInfo") ?? "NO USER")")
+        }
+        if UserDefaults.standard.object(forKey: "ID") != nil && UserDefaults.standard.object(forKey: "userInfo") == nil {
+            
+            fetchFirestoreAnonymous()
+            print("User logged in as Anonymous with ID: \(UserDefaults.standard.object(forKey: "ID") ?? "NO USER")")
+            
         }else{
             print("User Not Logged in!!!")
         }
