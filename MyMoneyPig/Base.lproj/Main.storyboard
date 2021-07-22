@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ipn-Vk-laM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RNc-73-eVJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -752,10 +752,10 @@
             </objects>
             <point key="canvasLocation" x="6927.5362318840589" y="64.955357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--First Start View Controller-->
         <scene sceneID="5LY-cs-law">
             <objects>
-                <viewController id="RNc-73-eVJ" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="RNc-73-eVJ" customClass="FirstStartViewController" customModule="MyMoneyPig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fbf-PD-yPb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -839,6 +839,9 @@
                             <constraint firstItem="7K8-js-QCS" firstAttribute="trailing" secondItem="euP-fh-wPa" secondAttribute="trailing" id="zh7-PQ-olK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logo" destination="HQY-a0-FMH" id="Iar-w2-dB5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLb-HR-fzM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -942,6 +945,7 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="CRc-Kj-qnW"/>
         <designable name="NfO-Wg-vCM"/>
         <designable name="mK8-P2-08H"/>
         <designable name="wsi-lR-dWc"/>

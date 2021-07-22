@@ -11,6 +11,7 @@
 		A012FD1B25D13428002C92F9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012FD1A25D13428002C92F9 /* Models.swift */; };
 		A01CDA6225C9584400DC5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CDA6125C9584400DC5F74 /* HomeViewController.swift */; };
 		A05C88D92677F3A800807317 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C88D82677F3A800807317 /* RoundLabel.swift */; };
+		A09F34DD26A9BEA600A69B6D /* FirstStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F34DC26A9BEA600A69B6D /* FirstStartViewController.swift */; };
 		A0B8F79925C9542800DD9032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79825C9542800DD9032 /* AppDelegate.swift */; };
 		A0B8F79B25C9542800DD9032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */; };
 		A0B8F7A025C9542800DD9032 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F79E25C9542800DD9032 /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		A0B8F7AE25C9549F00DD9032 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */; };
 		A0C265842639594F00AD4669 /* CLCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C265832639594F00AD4669 /* CLCellTableViewCell.swift */; };
 		A0D824D526830B8400109A42 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D824D426830B8400109A42 /* RoundButton.swift */; };
-		A0D824D726830F6500109A42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D824D626830F6500109A42 /* LoginViewController.swift */; };
 		A0D8A84925DA73C000D9EBAD /* Truncation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8A84825DA73C000D9EBAD /* Truncation.swift */; };
 		A0E4DD7C25DFBC120091E397 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */; };
 		A0EB46BF25D00BAB009FCC7A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */; };
@@ -35,6 +35,7 @@
 		A01CDA6125C9584400DC5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A01FFC2925C9EB4B0052A3B6 /* MyMoneyPig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMoneyPig.entitlements; sourceTree = "<group>"; };
 		A05C88D82677F3A800807317 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
+		A09F34DC26A9BEA600A69B6D /* FirstStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartViewController.swift; sourceTree = SOURCE_ROOT; };
 		A0B8F79525C9542800DD9032 /* MyMoneyPig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoneyPig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B8F79825C9542800DD9032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		A0B8F7AD25C9549F00DD9032 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0C265832639594F00AD4669 /* CLCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLCellTableViewCell.swift; sourceTree = "<group>"; };
 		A0D824D426830B8400109A42 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		A0D824D626830F6500109A42 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0D8A84825DA73C000D9EBAD /* Truncation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Truncation.swift; sourceTree = "<group>"; };
 		A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		A0EB46BE25D00BAB009FCC7A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				A0B8F79825C9542800DD9032 /* AppDelegate.swift */,
 				A0B8F79A25C9542800DD9032 /* SceneDelegate.swift */,
 				A0B8F79E25C9542800DD9032 /* Main.storyboard */,
-				A0D824D626830F6500109A42 /* LoginViewController.swift */,
+				A09F34DC26A9BEA600A69B6D /* FirstStartViewController.swift */,
 				A0C265832639594F00AD4669 /* CLCellTableViewCell.swift */,
 				A0E4DD7B25DFBC120091E397 /* EditingViewController.swift */,
 				A0EB46C425D11A88009FCC7A /* AddBillViewController.swift */,
@@ -269,8 +269,8 @@
 				A0EB46C225D00BC9009FCC7A /* CustomViewController.swift in Sources */,
 				A01CDA6225C9584400DC5F74 /* HomeViewController.swift in Sources */,
 				A0EB46BF25D00BAB009FCC7A /* SettingsViewController.swift in Sources */,
+				A09F34DD26A9BEA600A69B6D /* FirstStartViewController.swift in Sources */,
 				A0EB46C525D11A88009FCC7A /* AddBillViewController.swift in Sources */,
-				A0D824D726830F6500109A42 /* LoginViewController.swift in Sources */,
 				A012FD1B25D13428002C92F9 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
