@@ -752,6 +752,98 @@
             </objects>
             <point key="canvasLocation" x="6927.5362318840589" y="64.955357142857139"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5LY-cs-law">
+            <objects>
+                <viewController id="RNc-73-eVJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fbf-PD-yPb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="HQY-a0-FMH">
+                                <rect key="frame" x="157" y="181" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2Ea-Qb-eo2"/>
+                                    <constraint firstAttribute="height" constant="100" id="b8f-KU-22O"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRc-Kj-qnW" customClass="RoundLabel" customModule="MyMoneyPig" customModuleProvider="target">
+                                <rect key="frame" x="77" y="353" width="260" height="190"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="LEo-xv-gyV"/>
+                                    <constraint firstAttribute="width" constant="260" id="VcG-6l-xFC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K8-js-QCS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="6F7-Lh-lsW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUT-dg-W8P">
+                                <rect key="frame" x="101" y="463" width="212" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="b2D-kt-7No"/>
+                                    <constraint firstAttribute="width" constant="212" id="fmN-tU-y4j"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="apple-id-continue-with_2x"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Keep your spending securely synchronized on your devices with Apple sign in" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oN6-cv-v6b">
+                                <rect key="frame" x="87" y="363" width="240" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="rf0-cO-Pi4"/>
+                                    <constraint firstAttribute="height" constant="65" id="uq3-aL-y7y"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY0-ha-NAx">
+                                <rect key="frame" x="171" y="732" width="72" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="0p8-8C-oJm"/>
+                                    <constraint firstAttribute="width" constant="72" id="Ssy-IR-RkW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
+                                <state key="normal" title="&gt;&gt; Skip"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="euP-fh-wPa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oN6-cv-v6b" firstAttribute="centerX" secondItem="Fbf-PD-yPb" secondAttribute="centerX" id="2Lr-RI-ojJ"/>
+                            <constraint firstItem="7K8-js-QCS" firstAttribute="top" secondItem="Fbf-PD-yPb" secondAttribute="top" id="2hT-du-Pbb"/>
+                            <constraint firstItem="euP-fh-wPa" firstAttribute="bottom" secondItem="SY0-ha-NAx" secondAttribute="bottom" constant="94" id="6sa-QS-d0M"/>
+                            <constraint firstItem="HQY-a0-FMH" firstAttribute="top" secondItem="7K8-js-QCS" secondAttribute="bottom" constant="99" id="8WV-pY-Fet"/>
+                            <constraint firstItem="iUT-dg-W8P" firstAttribute="top" secondItem="oN6-cv-v6b" secondAttribute="bottom" constant="35" id="9vs-QQ-ef2"/>
+                            <constraint firstItem="CRc-Kj-qnW" firstAttribute="centerX" secondItem="Fbf-PD-yPb" secondAttribute="centerX" id="H7g-M7-9GG"/>
+                            <constraint firstItem="iUT-dg-W8P" firstAttribute="centerX" secondItem="Fbf-PD-yPb" secondAttribute="centerX" id="Z18-Cy-SL8"/>
+                            <constraint firstItem="CRc-Kj-qnW" firstAttribute="top" secondItem="HQY-a0-FMH" secondAttribute="bottom" constant="72" id="eT9-Pd-TsF"/>
+                            <constraint firstItem="SY0-ha-NAx" firstAttribute="centerX" secondItem="Fbf-PD-yPb" secondAttribute="centerX" id="hZY-3A-eC1"/>
+                            <constraint firstItem="CRc-Kj-qnW" firstAttribute="top" secondItem="oN6-cv-v6b" secondAttribute="bottom" constant="-75" id="sZy-to-zZp"/>
+                            <constraint firstItem="7K8-js-QCS" firstAttribute="leading" secondItem="euP-fh-wPa" secondAttribute="leading" id="soH-fe-Kq6"/>
+                            <constraint firstItem="HQY-a0-FMH" firstAttribute="centerX" secondItem="Fbf-PD-yPb" secondAttribute="centerX" id="tPQ-3I-dGO"/>
+                            <constraint firstItem="7K8-js-QCS" firstAttribute="trailing" secondItem="euP-fh-wPa" secondAttribute="trailing" id="zh7-PQ-olK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLb-HR-fzM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963.76811594202911" y="-1796.6517857142856"/>
+        </scene>
         <!--Initila View Controller-->
         <scene sceneID="V0B-X0-tCN">
             <objects>
@@ -859,12 +951,17 @@
         <image name="Plus Buttom" width="256" height="256"/>
         <image name="SevenBlack" width="256" height="256"/>
         <image name="Thirty" width="256" height="256"/>
+        <image name="apple-id-continue-with_2x" width="424" height="76"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="hammer.fill" catalog="system" width="128" height="117"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="placeholdertext.fill" catalog="system" width="80" height="128"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -873,6 +970,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
