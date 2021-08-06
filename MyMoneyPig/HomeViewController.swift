@@ -27,14 +27,24 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
         
-        if UserDefaults.standard.object(forKey: "userInfo") != nil {
-        do {
-            try Auth.auth().signOut()
-            UserDefaults.standard.removeObject(forKey: "userInfo")
-            
-          } catch let err {
-            print(err)
-                }
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                self.showUserInfo(user:user)
+            do {
+                try Auth.auth().signOut()
+                
+                let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
+                secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+                self.present(secondVC, animated:true, completion:nil)
+                UserDefaults.standard.removeObject(forKey: "userApple")
+                UserDefaults.standard.removeObject(forKey: "userAnonymous")
+              } catch let err {
+                print(err)
+              }
+                
+            }else{
+                print("you are not logged in!")
+            }
         }
 //            let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
 //        self.present(secondVC, animated:true, completion:nil)
@@ -50,7 +60,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     func showUserInfo(user:User) {
 
         print("USER.UID: \(user.uid)")
-        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+        
     }
     
     
@@ -58,42 +68,24 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     var userIDA: String?
     var userAPPLE: String?
+    var userID: String?
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        userIDA = UserDefaults.standard.object(forKey: "ID") as? String
-        userAPPLE = UserDefaults.standard.object(forKey: "userInfo") as? String
 
-        if userIDA == nil && userAPPLE == nil {
-        Auth.auth().signInAnonymously { authResult, error in
-            guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
-            UserDefaults.standard.setValue(user.uid, forKey: "ID")
-            if isAnonymous == true {
-                print("User is signed in with UID \(user.uid)")
-                }
-            
-            }
+        if UserDefaults.standard.object(forKey: "userAnonymous") == nil {
+            userID = UserDefaults.standard.object(forKey: "userApple") as? String
         }
-        if userIDA != nil && userAPPLE == nil {
-            fetchAnonymousFirestore()
-            print("User signed in Anonymously")
+        if UserDefaults.standard.object(forKey: "userApple") == nil {
+            userID = UserDefaults.standard.object(forKey: "userAnonymous") as? String
+        }else{
+            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
+            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+            self.present(secondVC, animated:true, completion:nil)
+            UserDefaults.standard.removeObject(forKey: "userApple")
+            UserDefaults.standard.removeObject(forKey: "userAnonymous")
         }
-        
-        if userAPPLE != nil && userIDA == nil {
-            
-            Auth.auth().addStateDidChangeListener { (auth, user) in
-                if let user = user {
-                    self.showUserInfo(user:user)
-                    print("User signed in with Apple")
-                } else {
-                    print("User non Apple Logged!!")
-                }
-            }
-            fetcFirestore()
-        }
-        
-        
+       
+        fetcFirestore()
         
         self.tabBarController?.tabBar.isHidden = false
         
@@ -138,7 +130,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             print("GREAT!!! You Are Logged in as \(user.uid)")
-            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
         }
     }
     
@@ -256,7 +247,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
                 for documet in querySnapshot!.documents {
         
                     let r = documet.data()["UID"] as! String
-                    let userID = UserDefaults.standard.object(forKey: "userInfo") as! String
+                    
                     if r == userID {
                         
                         let formatter = DateFormatter()
