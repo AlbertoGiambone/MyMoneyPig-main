@@ -32,25 +32,11 @@
                                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-PN-aPk">
-                                                <rect key="frame" x="8" y="261" width="398" height="45"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="2Xg-07-P2U"/>
-                                                </constraints>
-                                                <state key="normal" title="Sign in or Log in"/>
-                                                <connections>
-                                                    <action selector="SyncButtonpressed:" destination="OqL-he-VDS" eventType="touchUpInside" id="aiu-5k-XsI"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstItem="f8h-PN-aPk" firstAttribute="leading" secondItem="nmI-Bc-fZu" secondAttribute="leading" constant="8" id="6ET-Bj-f3T"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="centerX" secondItem="nmI-Bc-fZu" secondAttribute="centerX" id="GiN-1O-UZP"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="top" secondItem="nmI-Bc-fZu" secondAttribute="top" constant="208" id="MxP-Qf-MhS"/>
-                                            <constraint firstItem="f8h-PN-aPk" firstAttribute="top" secondItem="RGF-k2-KE1" secondAttribute="bottom" constant="8" symbolic="YES" id="Qg7-6x-Uha"/>
-                                            <constraint firstAttribute="trailing" secondItem="f8h-PN-aPk" secondAttribute="trailing" constant="8" id="fna-ty-3fm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -80,7 +66,6 @@
                     <navigationItem key="navigationItem" title="Settings" id="GMi-8E-7gy"/>
                     <connections>
                         <outlet property="currencyTextField" destination="RGF-k2-KE1" id="9qK-Nu-RCB"/>
-                        <outlet property="syncButton" destination="f8h-PN-aPk" id="OvU-Qz-Qp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boz-w2-TAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

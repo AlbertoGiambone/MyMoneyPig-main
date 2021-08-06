@@ -112,7 +112,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         
         if amountTextField.hasText == true {
             
-            if UserDefaults.standard.object(forKey: "userInfo") != nil {
+            if UserDefaults.standard.object(forKey: "userAnonymous") != nil {
             if segment.selectedSegmentIndex == 0 {
                 
                 var amountText = amountTextField.text
@@ -122,7 +122,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                     print("SAVE BUTTON DISABLED!")
                 }else{
                 db.collection("Price").addDocument(data: [
-                    "UID": UserDefaults.standard.object(forKey: "userInfo") as! String,
+                    "UID": UserDefaults.standard.object(forKey: "userAnonymous") as! String,
                     "subject": String(subjectTextField.text ?? ""),
                     "Bill date": String(dateTextField.text ?? ""),
                     "amount": String("\(amountText!)"),
@@ -141,7 +141,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                 var amountText = amountTextField.text
                 amountText?.replace(",", with: ".")
             db.collection("Price").addDocument(data: [
-                "UID": UserDefaults.standard.object(forKey: "userInfo") as! String,
+                "UID": UserDefaults.standard.object(forKey: "userAnonymous") as! String,
                 "subject": String(subjectTextField.text ?? ""),
                 "Bill date": String(dateTextField.text ?? ""),
                 "amount": String(amountText!),
@@ -160,7 +160,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             }
         navigationController?.popViewController(animated: true)
         }
-        if UserDefaults.standard.object(forKey: "ID") != nil {
+        if UserDefaults.standard.object(forKey: "userApple") != nil {
             if segment.selectedSegmentIndex == 0 {
                 
                 var amountText = amountTextField.text
@@ -170,7 +170,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                     print("SAVE BUTTON DISABLED!")
                 }else{
                 db.collection("Price").addDocument(data: [
-                    "UID": UserDefaults.standard.object(forKey: "ID") as! String,
+                    "UID": UserDefaults.standard.object(forKey: "userApple") as! String,
                     "subject": String(subjectTextField.text ?? ""),
                     "Bill date": String(dateTextField.text ?? ""),
                     "amount": String("\(amountText!)"),
@@ -189,7 +189,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
                 var amountText = amountTextField.text
                 amountText?.replace(",", with: ".")
             db.collection("Price").addDocument(data: [
-                "UID": UserDefaults.standard.object(forKey: "ID") as! String,
+                "UID": UserDefaults.standard.object(forKey: "userApple") as! String,
                 "subject": String(subjectTextField.text ?? ""),
                 "Bill date": String(dateTextField.text ?? ""),
                 "amount": String(amountText!),

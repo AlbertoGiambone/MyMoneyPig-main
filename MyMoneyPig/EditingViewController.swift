@@ -136,7 +136,7 @@ class EditingViewController: UIViewController, UITextFieldDelegate {
                 let docREFERNCE = db.collection("Price").document(docID!)
                 
                 docREFERNCE.setData([
-                    "UID": UserDefaults.standard.object(forKey: "userInfo") as! String,
+                    "UID": String(docuPassed!.UID),
                     "subject": String(subject.text ?? ""),
                     "Bill date": String(dateX.text ?? ""),
                     "amount": String("\(amountText!)"),
@@ -163,7 +163,7 @@ class EditingViewController: UIViewController, UITextFieldDelegate {
                 let docREFERNCE = db.collection("Price").document(docID!)
                 
                 docREFERNCE.setData([
-                "UID": UserDefaults.standard.object(forKey: "userInfo") as! String,
+                "UID": String(docuPassed!.UID),
                 "subject": String(subject.text ?? ""),
                 "Bill date": String(dateX.text ?? ""),
                 "amount": String(amountText!),

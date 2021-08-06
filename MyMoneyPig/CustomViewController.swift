@@ -212,9 +212,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var positiveOrdered = [conto]()
     
     func FetchFirestoreData() {
-        
-        let userID = UserDefaults.standard.object(forKey: "userInfo") as! String
-        
+
         let queryRef = db.collection("Price")
         
         queryRef.getDocuments() {(querySnapshot, err) in
@@ -227,7 +225,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     
                     
-                    if r == userID {
+                    if r == self.userID {
                         
                         let formatter = DateFormatter()
                         formatter.dateStyle = .short
@@ -260,81 +258,28 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
     }
-    
-    
-    func fetchFirestoreAnonymous() {
-        
-        let userIDA = UserDefaults.standard.object(forKey: "ID") as! String
-        
-        let queryRef = db.collection("Price")
-        
-        queryRef.getDocuments() {(querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting Firestore data: \(err)")
-            }else{
-                for documet in querySnapshot!.documents {
-                    let r = documet.data()["UID"] as! String
-                    
-                    
-                    
-                    if r == userIDA {
-                        
-                        let formatter = DateFormatter()
-                        formatter.dateStyle = .short
-                        let d: Date = formatter.date(from: documet.data()["Bill date"] as! String)!
-                        
-                        let t = conto(UID: documet.data()["UID"] as! String, subject: documet.data()["subject"] as! String, BillDate: d, amount: documet.data()["amount"] as! String, docID: documet.documentID, sign: documet.data()["sign"] as! String)
-                    
-                        self.bills.append(t)
-                        
-                        self.billsOrdered = self.bills.sorted(by: {$1.BillDate < $0.BillDate})
-                        
-                        let segno = documet.data()["sign"] as! String
-                        
-                        if segno == "false" {
-                            self.negativeArray.append(t)
-                            self.negativeOrdered = self.negativeArray.sorted(by: {$1.BillDate < $0.BillDate})
-                        }
-                        if segno == "true" {
-                            self.positiveArray.append(t)
-                            self.positiveOrdered = self.positiveArray.sorted(by: {$1.BillDate < $0.BillDate})
-                        }
-                        
-                        self.table.reloadData()
-                    }
-                    
-                }
-            }
-            
-            
-        }
-        
-        
-        
-    }
-    
-    
-    
+   
     //MARK: Lifecycle
     
+    var userID: String?
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.object(forKey: "userInfo") != nil && UserDefaults.standard.object(forKey: "ID") == nil {
+        if UserDefaults.standard.object(forKey: "userAnonymous") == nil {
+            userID = UserDefaults.standard.object(forKey: "userApple") as? String
+        }
+        if UserDefaults.standard.object(forKey: "userApple") == nil {
+            userID = UserDefaults.standard.object(forKey: "userAnonymous") as? String
+        }else{
+            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
+            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+            self.present(secondVC, animated:true, completion:nil)
+            UserDefaults.standard.removeObject(forKey: "userApple")
+            UserDefaults.standard.removeObject(forKey: "userAnonymous")
+        }
         
         FetchFirestoreData()
-            
-            print("user is logged as \(UserDefaults.standard.object(forKey: "userInfo") ?? "NO USER")")
-        }
-        if UserDefaults.standard.object(forKey: "ID") != nil && UserDefaults.standard.object(forKey: "userInfo") == nil {
-            
-            fetchFirestoreAnonymous()
-            print("User logged in as Anonymous with ID: \(UserDefaults.standard.object(forKey: "ID") ?? "NO USER")")
-            
-        }else{
-            print("User Not Logged in!!!")
-        }
+        
         table.reloadData()
     }
     
