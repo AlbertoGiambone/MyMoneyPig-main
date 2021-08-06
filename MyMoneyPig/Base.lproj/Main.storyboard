@@ -800,6 +800,9 @@
                                     <constraint firstAttribute="width" constant="212" id="fmN-tU-y4j"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="apple-id-continue-with_2x"/>
+                                <connections>
+                                    <action selector="AppleSignIn:" destination="RNc-73-eVJ" eventType="touchUpInside" id="ELk-40-gbF"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Keep your spending securely synchronized on your devices with Apple sign in" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oN6-cv-v6b">
                                 <rect key="frame" x="87" y="363" width="240" height="65"/>
@@ -819,6 +822,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                 <state key="normal" title="&gt;&gt; Skip"/>
+                                <connections>
+                                    <action selector="AnonymousSignIn:" destination="RNc-73-eVJ" eventType="touchUpInside" id="90m-CC-eKp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="euP-fh-wPa"/>
@@ -840,6 +846,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AnonymousButton" destination="SY0-ha-NAx" id="3jm-Qg-HnY"/>
                         <outlet property="logo" destination="HQY-a0-FMH" id="Iar-w2-dB5"/>
                     </connections>
                 </viewController>
@@ -847,10 +854,10 @@
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="-1796.6517857142856"/>
         </scene>
-        <!--Initila View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="V0B-X0-tCN">
             <objects>
-                <tabBarController storyboardIdentifier="initilaViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Ipn-Vk-laM" customClass="initilaViewController" customModule="MyMoneyPig" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="NavigationController" storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Ipn-Vk-laM" customClass="TabBarController" customModule="MyMoneyPig" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="vLe-1B-bqB"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PMg-ft-ItM">
