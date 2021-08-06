@@ -88,13 +88,13 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.showUserInfo(user:user)
-                UserDefaults.standard.removeObject(forKey: "userAnonymous")
+                UserDefaults.standard.setValue(user.uid, forKey: "userApple")
                 
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                 secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
                 self.present(secondVC, animated:true, completion:nil)
-                UserDefaults.standard.setValue(user.uid, forKey: "userApple")
-                print("USER LOGGED IN!!!")
+                UserDefaults.standard.removeObject(forKey: "userAnonymous")
+                print("APPLE USER LOGGED IN!!!")
                 
                 
             } else {

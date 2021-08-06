@@ -33,11 +33,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             do {
                 try Auth.auth().signOut()
                 
-                let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
-                secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
-                self.present(secondVC, animated:true, completion:nil)
+                DispatchQueue.main.async { // <<<<< (new)
+                    let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
+                    secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+                    self.present(secondVC, animated:true, completion:nil)
                 UserDefaults.standard.removeObject(forKey: "userApple")
-                UserDefaults.standard.removeObject(forKey: "userAnonymous")
+                    UserDefaults.standard.removeObject(forKey: "userAnonymous")
+                    
+                }
               } catch let err {
                 print(err)
               }
