@@ -27,30 +27,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.showUserInfo(user:user)
-            do {
-                try Auth.auth().signOut()
-                
-                DispatchQueue.main.async { // <<<<< (new)
-                    let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
-                    secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
-                    self.present(secondVC, animated:true, completion:nil)
-                UserDefaults.standard.removeObject(forKey: "userApple")
-                    UserDefaults.standard.removeObject(forKey: "userAnonymous")
-                    
-                }
-              } catch let err {
-                print(err)
-              }
-                
-            }else{
-                print("you are not logged in!")
-            }
-        }
-//            let secondVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-//        self.present(secondVC, animated:true, completion:nil)
+        do {
+            try Auth.auth().signOut()
+            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
+            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+            self.present(secondVC, animated:true, completion:nil)
+          } catch let err {
+            print(err)
+          }
         
     }
     

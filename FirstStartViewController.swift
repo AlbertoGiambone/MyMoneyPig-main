@@ -24,11 +24,6 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if UserDefaults.standard.object(forKey: "userAnonymous") != nil {
-            AnonymousButton.isHidden = true
-            AnonymousButton.isEnabled = false
-        }
-        
         logo.layer.cornerRadius = 50
     }
     
@@ -41,13 +36,13 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
     func showUserInfo(user:User) {
 
         print("USER.UID: \(user.uid)")
-        UserDefaults.standard.setValue(user.uid, forKey: "userApple")
+        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             print("GREAT!!! You Are Logged in as \(user.uid)")
-            UserDefaults.standard.setValue(user.uid, forKey: "userApple")
+            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
         }
     }
     
@@ -66,7 +61,7 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
     //MARK: Segue to Home if logged in
     
     func signInTrust() {
-        if UserDefaults.standard.object(forKey: "userApple") != nil || UserDefaults.standard.object(forKey: "userAnonymous") != nil {
+        if UserDefaults.standard.object(forKey: "userInfo") != nil {
             DispatchQueue.main.async { // <<<<< (new)
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                 secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
@@ -88,7 +83,7 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.showUserInfo(user:user)
-                UserDefaults.standard.setValue(user.uid, forKey: "userApple")
+                UserDefaults.standard.removeObject(forKey: "userInfo")
                 
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                 secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
@@ -110,10 +105,10 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
         Auth.auth().signInAnonymously { authResult, error in
             guard let user = authResult?.user else { return }
             let isAnonymous = user.isAnonymous  // true
-            UserDefaults.standard.setValue(user.uid, forKey: "userAnonymous")
+            UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
             if isAnonymous == true {
                 print("User is signed in with UID \(user.uid)")
-                UserDefaults.standard.removeObject(forKey: "userApple")
+                UserDefaults.standard.removeObject(forKey: "userInfo")
                 
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                     self.present(secondVC, animated:true, completion:nil)
