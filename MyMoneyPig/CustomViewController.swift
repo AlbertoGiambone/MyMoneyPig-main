@@ -19,9 +19,6 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
-    
-    
-    
     //MARK: Tableview settings
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -265,18 +262,7 @@ class CustomViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.object(forKey: "userAnonymous") == nil {
-            userID = UserDefaults.standard.object(forKey: "userApple") as? String
-        }
-        if UserDefaults.standard.object(forKey: "userApple") == nil {
-            userID = UserDefaults.standard.object(forKey: "userAnonymous") as? String
-        }else{
-            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
-            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
-            self.present(secondVC, animated:true, completion:nil)
-            UserDefaults.standard.removeObject(forKey: "userApple")
-            UserDefaults.standard.removeObject(forKey: "userAnonymous")
-        }
+        userID = UserDefaults.standard.object(forKey: "userInfo") as? String
         
         FetchFirestoreData()
         

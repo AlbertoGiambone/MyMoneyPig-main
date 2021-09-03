@@ -39,37 +39,37 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     }
     
     
-    
-    
-    
-   
+    func showLoginVC() {
+        let autUI = FUIAuth.defaultAuthUI()
+        let providers = [FUIOAuth.appleAuthProvider()]
+        
+        autUI?.providers = providers
+        
+        let autViewController = autUI!.authViewController()
+        autViewController.modalPresentationStyle = .fullScreen
+        self.present(autViewController, animated: true, completion: nil)
+    }
     
     func showUserInfo(user:User) {
 
         print("USER.UID: \(user.uid)")
-        
+        UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
+        userID = UserDefaults.standard.object(forKey: "userInfo") as? String
     }
     
     
     //MARK: view Lifecycle
     
-    var userIDA: String?
-    var userAPPLE: String?
     var userID: String?
     
     override func viewWillAppear(_ animated: Bool) {
 
-        if UserDefaults.standard.object(forKey: "userAnonymous") == nil {
-            userID = UserDefaults.standard.object(forKey: "userApple") as? String
-        }
-        if UserDefaults.standard.object(forKey: "userApple") == nil {
-            userID = UserDefaults.standard.object(forKey: "userAnonymous") as? String
-        }else{
-            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
-            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
-            self.present(secondVC, animated:true, completion:nil)
-            UserDefaults.standard.removeObject(forKey: "userApple")
-            UserDefaults.standard.removeObject(forKey: "userAnonymous")
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                self.showUserInfo(user:user)
+            } else {
+                self.showLoginVC()
+            }
         }
        
         fetcFirestore()
@@ -282,51 +282,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
 
     }
     
-    func fetchAnonymousFirestore() {
-        
-        
-        dataB.collection("Price").getDocuments() { [self](querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting Firestore data: \(err)")
-            }else{
-                for documet in querySnapshot!.documents {
-        
-                    let r = documet.data()["UID"] as! String
-                    
-                    if r == userIDA {
-                        let formatter = DateFormatter()
-                        formatter.dateStyle = .short
-                        let d: Date = formatter.date(from: documet.data()["Bill date"] as! String)!
-                        
-                        self.balanceArray.append(documet.data()["amount"] as! String)
-                        self.wholeFirestore.append(conto(UID: documet.data()["UID"] as! String, subject: documet.data()["subject"] as! String, BillDate: d, amount: documet.data()["amount"] as! String, docID: documet.documentID, sign: documet.data()["sign"] as! String))
-                    }
-                }
-            }
-            
-            
-            
-            for y in self.wholeFirestore {
-                if y.sign == "false" {
-                    self.stodo.append(Double("-\(y.amount)")!)
-                }else{
-                    self.stodo.append(Double(y.amount)!)
-                }
-            }
-            
-            let defCurrency = UserDefaults.standard.object(forKey: "CurrencySet")
-            
-            if stodo.reduce(0, +) == 0 {
-            
-            self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
-            }else{
-                self.balanceLabel.text = String("\(self.stodo.reduce(0, +).truncate(places: 2)) \(defCurrency ?? "")")
-            }
-            self.getWeekBalance()
-        
-        }
-        
-    }
+   
     
 }
