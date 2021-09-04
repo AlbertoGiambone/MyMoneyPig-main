@@ -83,12 +83,11 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.showUserInfo(user:user)
-                UserDefaults.standard.removeObject(forKey: "userInfo")
                 
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                 secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
                 self.present(secondVC, animated:true, completion:nil)
-                UserDefaults.standard.removeObject(forKey: "userAnonymous")
+                
                 print("APPLE USER LOGGED IN!!!")
                 
                 
@@ -108,7 +107,6 @@ class FirstStartViewController: UIViewController, FUIAuthDelegate {
             UserDefaults.standard.setValue(user.uid, forKey: "userInfo")
             if isAnonymous == true {
                 print("User is signed in with UID \(user.uid)")
-                UserDefaults.standard.removeObject(forKey: "userInfo")
                 
                 let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
                     self.present(secondVC, animated:true, completion:nil)

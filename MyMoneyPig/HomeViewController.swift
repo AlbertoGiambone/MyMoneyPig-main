@@ -20,24 +20,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     @IBOutlet weak var monthLabel: UILabel!
     
     @IBOutlet weak var logButton: UIBarButtonItem!
-    
-    
-    
-    //MARK: Action
-    
-    @IBAction func LoginButtonTapped(_ sender: UIBarButtonItem) {
-        
-        do {
-            try Auth.auth().signOut()
-            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! TabBarController
-            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
-            self.present(secondVC, animated:true, completion:nil)
-          } catch let err {
-            print(err)
-          }
-        
-    }
-    
+   
     
     func showLoginVC() {
         let autUI = FUIAuth.defaultAuthUI()

@@ -32,11 +32,27 @@
                                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9U-cF-PUV">
+                                                <rect key="frame" x="96" y="313" width="222" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="0hZ-sx-Zq1"/>
+                                                    <constraint firstAttribute="width" constant="222" id="6T6-Cy-lA5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
+                                                <state key="normal" title="Sign Out">
+                                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="LogOutTapped:" destination="OqL-he-VDS" eventType="touchUpInside" id="D6v-OI-IHP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
+                                            <constraint firstItem="a9U-cF-PUV" firstAttribute="top" secondItem="RGF-k2-KE1" secondAttribute="bottom" constant="60" id="1vz-UT-Dfx"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="centerX" secondItem="nmI-Bc-fZu" secondAttribute="centerX" id="GiN-1O-UZP"/>
                                             <constraint firstItem="RGF-k2-KE1" firstAttribute="top" secondItem="nmI-Bc-fZu" secondAttribute="top" constant="208" id="MxP-Qf-MhS"/>
+                                            <constraint firstItem="a9U-cF-PUV" firstAttribute="centerX" secondItem="nmI-Bc-fZu" secondAttribute="centerX" id="UKY-Ca-N9E"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -258,18 +274,9 @@
                             <constraint firstItem="Mp4-zL-4xr" firstAttribute="trailing" secondItem="FaG-tz-cXW" secondAttribute="trailing" id="w6M-qx-Fl0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="2vj-A9-Jgu">
-                        <barButtonItem key="rightBarButtonItem" image="power" catalog="system" width="40" style="done" id="Jkp-Qa-h9C">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="LoginButtonTapped:" destination="U8E-Uw-SX7" id="iUp-94-2Ol"/>
-                                <segue destination="U8E-Uw-SX7" kind="show" id="gK4-bY-ZP0"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="2vj-A9-Jgu"/>
                     <connections>
                         <outlet property="balanceLabel" destination="NfO-Wg-vCM" id="9Cu-Vc-rsE"/>
-                        <outlet property="logButton" destination="Jkp-Qa-h9C" id="2kQ-Qv-sds"/>
                         <outlet property="monthLabel" destination="z6J-Sr-iXr" id="eku-LF-AeT"/>
                         <outlet property="weekLabel" destination="Lgt-jm-u7P" id="XIn-iw-DM3"/>
                         <segue destination="hd9-xz-sSU" kind="show" identifier="addBill" id="8Pz-fc-lw6"/>
@@ -954,7 +961,6 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="iTunesArtwork" width="512" height="512"/>
         <image name="placeholdertext.fill" catalog="system" width="80" height="128"/>
-        <image name="power" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -978,6 +984,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

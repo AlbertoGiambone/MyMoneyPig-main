@@ -90,6 +90,35 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
   
+    @IBAction func LogOutTapped(_ sender: UIButton) {
+        handleLogOut()
+    }
+    
+    
+//        do {
+//            try Auth.auth().signOut()
+//            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
+//            secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+//            self.present(secondVC, animated:true, completion:nil)
+//            UserDefaults.standard.removeObject(forKey: "userInfo")
+//            print("LOGGED OUT!")
+//          } catch let err {
+//            print(err)
+//          }
+    
+
+
+func handleLogOut(){
+    do{
+       try Auth.auth().signOut();
+        let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! FirstStartViewController
+                    secondVC.modalPresentationStyle = .fullScreen // <<<<< (switched)
+                    self.present(secondVC, animated:true, completion:nil)
+                    UserDefaults.standard.removeObject(forKey: "userInfo")
+     } catch let logoutError {
+       print(logoutError)
+     }
+}
     
 
     
